@@ -1,6 +1,6 @@
-from RisingStar import app
+from RisingStar import application
 
-application = app.app
+app = application.app
 
 if __name__ == '__main__':
-    application.run(port=5000, debug=True)
+    app.run(port=5000, debug=True)
