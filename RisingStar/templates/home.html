@@ -1,12 +1,48 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-    <img src="{{url_for('static', filename='images/WelcomeAshes.jpg')}}" class="img-fluid" alt="Welcome ">
-    <!-- try adding some more to it-->
-    <h1> YEEHAW </h1>
-    <h1> Get roasted on Campfire. </h1>
-    <!-- vscode also makes tags a bit eaiser to use if you type lorem then press enter it adds dummy text-->
-    <!-- thats prolly all you need for a basic thing ig try making a commit-->
-    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero itaque aliquam tenetur, iste quisquam odio error asperiores expedita sunt   voluptatum. Odit velit deleniti sit aut est aliquam obcaecati fugit sapiente. </p>
-    <!-- Latest compiled and minified CSS -->
+<img src="{{url_for('static', filename='images/WelcomeAshes.jpg')}}" class="img-fluid" alt="Welcome ">
+<br>
+<br>
+<div class="card-deck">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title text-primary">News</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title text-danger">Whats Hot?</h5>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content. This card has even longer content than the first to show that equal height action.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div class="card-deck">
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">Main</div>
+            <div class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, porro!</div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="card-title">Other</div>
+            <div class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, minus!</div>
+        </div>
+    </div>
+</div>
 {% endblock %}
