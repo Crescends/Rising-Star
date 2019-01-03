@@ -1,6 +1,5 @@
-<!-- try adding some more to it-->
-<h1> Hello dude!!! </h1>
-<h1> Words :/ </h1>
-<!-- vscode also makes tags a bit eaiser to use if you type lorem then press enter it adds dummy text-->
-<!-- thats prolly all you need for a basic thing ig try making a commit-->
-<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero itaque aliquam tenetur, iste quisquam odio error asperiores expedita sunt voluptatum. Odit velit deleniti sit aut est aliquam obcaecati fugit sapiente. </p>
+{% extends 'layout.html' %}
+
+{% block body %}
+    <img src="{{url_for('static', filename='images/WelcomeAshes.jpg')}}" class="img-fluid" alt="Welcome ">
+{% endblock %}

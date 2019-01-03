@@ -1,0 +1,13 @@
+#MainPage {
+    background-color: gray;
+}
+
+#background{
+    background-color: black;
+}
+
+.navbar {
+    background-color: red;
+    color :black;
+    font-weight: bold;
+}
