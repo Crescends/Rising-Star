@@ -3,7 +3,7 @@ from flask import render_template
 
 app = Flask(__name__)
 
-def create_app():
+def create_website():
     from . import routes
     app = Flask(__name__)
     routes.init_app(app)

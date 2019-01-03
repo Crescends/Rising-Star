@@ -6,8 +6,8 @@
         {
             "label": "Run website",
             "type": "shell",
-            "command": "${workspaceRoot}\\venv\\Scripts\\python.exe" ,
-            "args": ["${workspaceRoot}\\run.py"],
+            "command": "C:/Users/503454/Desktop/Rising-Star/venv/Scripts/python.exe" ,
+            "args": ["C:/Users/503454/Desktop/Rising-Star/run.py"],
             "group": {
                 "kind": "build",
                 "isDefault": true
