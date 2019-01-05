@@ -1,4 +1,5 @@
 from flask import Blueprint
+from flask import render_template
 
 merch_bp = Blueprint('merch_bp', __name__, template_folder='templates', static_url_path='static')
 
