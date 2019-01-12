@@ -1,5 +1,6 @@
 from .base import db
 
+
 class Merchandise(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.String(20), unique=True, nullable=False)
