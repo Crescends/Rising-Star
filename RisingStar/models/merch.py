@@ -1,15 +1,33 @@
 from .base import db
 
-class Merchandise(db.model):
+class Merchandise(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    type = db.Column(db.String(20), unique=True, nulable=False)
-    name = db.Column(db.Integer, nulable=False) # the display name
-    cost = db.Column(db.Float, nulable=False, default=0)
-    image_name = db.Column(db.String(25), nulable=False)
+    type = db.Column(db.String(20), unique=False, nullable=False)
+    name = db.Column(db.Integer, nullable=True) # the display name
+    cost = db.Column(db.Float, nullable=False, default=0)
+    image_name = db.Column(db.String(25), nullable=False)
 
-def add_merch(db):
-    db.session.add(Merchandise(type="hoodie", name="Black Campfire Jacket", cost=30.00, image_name="hoodie1.jpeg"))
-    db.session.add(Merchandise(type="bandana", name="Black Campfire Jacket", cost=2.50, image_name="bandana1.jpg"))
-    db.session.add(Merchandise(type=""))
+    def __repr__(self):
+        return f"{self.type}: {self.name} costs {self.cost}"
 
-sweatshirts $25, pillows are $5, shirts are $15, tank top is $10. Posters are $9.99 and albums are $29.99
+hoodie = Merchandise(type="hoodie", name="Black Campfire Jacket", cost=30.00, image_name="hoodie1.jpeg")
+bandana = Merchandise(type="bandana", name="Black Campfire Bandana", cost=2.50, image_name="bandana1.jpeg")
+pillow = Merchandise(type="pillow", name="Black Campfire Pillow", cost=25, image_name="pillow1.jpeg")
+shirt = Merchandise(type="shirt", name="Black Campfire Shirt", cost=25, image_name="shirt1.jpeg")
+sweat_shirt = Merchandise(type="sweat_shirt", name="Black Campfire Sweat Shirt", cost=25, image_name="sweat_shirt1.jpeg")
+tank = Merchandise(type="tank", name="Black Campfire Tank Top", cost=25, image_name="tank1.jpeg")
+
+def add_merch():
+    db.session.add(hoodie)
+    db.session.add(bandana)
+    db.session.add(pillow)
+    db.session.add(shirt)
+    db.session.add(sweat_shirt)
+    db.session.add(tank)
+    db.session.commit()
+"""
+    Not yet added
+    poster = Merchandise(type="poster", name="Black Campfire Poster", cost=25, image_name="poster1.jpeg")
+    pants = Merchandise(type="pants", name="Black Campfire Pants", cost=25, image_name="pants1.jpeg")
+    album = Merchandise(type="album", name="Black Campfire Album", cost=25, image_name="album1.jpeg")
+"""
