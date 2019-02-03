@@ -11,4 +11,4 @@ def merchandise():
 @merch_bp.route('/merchandise/checkout/<item>')
 def checkout(item):
     item = Merchandise.query.filter_by(name=item.replace("-", " ")).first()
-    return render_template('checkout.html', item=item)
+    return render_template('checkout.html', title=f"Checkout {item.name}" ,item=item)

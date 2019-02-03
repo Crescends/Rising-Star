@@ -16,4 +16,4 @@ def register():
 @forum.route('/login', methods=["GET", "POST"])
 def login():
     form = LoginForm()
-    return render_template('login.html', title="Register", form=form)
+    return render_template('login.html', title="Login", form=form)
