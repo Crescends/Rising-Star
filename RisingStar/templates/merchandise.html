@@ -3,44 +3,25 @@
 {% block body %}
 <div class="jumbotron">
   <h1 class="display-4">Campfire Merchandise</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+    featured content or information.</p>
   <hr class="my-4">
   <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  
+
 </div>
-<nav class="nav flex-column">
-  <a class="nav-link active" href="/All">All Products</a>
-  <a class="nav-link" href="/Albums">Albums</a>
-  <a class="nav-link" href="/Posters">Posters</a> 
-  <a class="nav-link" href="/Hoodies">Hoodies</a> 
-  <a class="nav-link" href="/Shirts">Shirts</a>
-  <a class="nav-link" href="/Pants">Pants</a>
-  <a class="nav-link" href="/Tanktops">Tank Tops</a>
-</nav>
+
 <div class="card-deck">
-  <div class="card">
-    <img id="merch-img" class="card-img-top" src="{{url_for('static', filename='images/merch/sweatshirt1.jpeg')}}" class="img-fluid" alt="Sweatshirts ">
-    <div class="card-body">
-      <h5 class="card-title">Sweatshirts</h5>
-      <p class="card-text">$25</p>
-      <a href="#" class="card-link">Add To Cart</a>
+  {% for item in merch %}
+    {% set image_filepath = "images/merch/" + item.image_name %}
+    {% set link = "/merchandise/checkout/" + item.name.replace(" ", "-")%}
+    <div class="card">
+      <img id="merch-img" class="card-img-top img-fluid" src="{{ url_for('static', filename=image_filepath) }}" alt="{{item.name}}">
+      <div class="card-body">
+        <h5 class="card-title"> {{item.name}} </h5>
+        <p class="card-text">$ {{item.cost}}</p>
+        <a href={{link}} class="card-link">Add To Cart</a>
+      </div>
     </div>
-  </div>
-  <div class="card">
-    <img id="merch-img" class="card-img-top img-fluid" src="{{url_for('static', filename='images/merch/hoodie1.jpg')}}" alt="Hoodies ">
-    <div class="card-body">
-      <h5 class="card-title">Hoodies</h5>
-      <p class="card-text">$30</p>
-      <a href="#" class="card-link">Add To Cart</a>
-    </div>
-  </div>
-  <div class="card">
-    <img id="merch-img" class="card-img-top img-fluid" src="{{url_for('static',filename='images/merch/ban1.jpeg')}}"alt="Bandana ">
-    <div class="card-body">
-      <h5 class="card-title">Bandana</h5>
-      <p class="card-text">$2.50</p>
-      <a href="#" class="card-link">Add To Cart</a>
-    </div>
-  </div>
+  {% endfor %}
 </div>
 {% endblock %}
