@@ -3,6 +3,14 @@
 {% block body %}
 <!-- html goes here -->
 <h1>Welcome to my domain</h1>
+
+            <div class="card-body">
+                <img id="merch-img" class="card-img-top img-fluid"
+                    src="{{ url_for('static', filename='images/about/page.png') }}">
+            </div>
+        </div>
+    </div>
+</div>
 <br>
 <br>
 <div class="card-deck">
@@ -15,11 +23,5 @@
                 creation of his original song "Smoke from the Ashes" gained over 1,ooo views on the same day.
                 This was the begining of his fame start in the music career making </p>
             <div class="card-body">
-                <img id="merch-img" class="card-img-top img-fluid"
-                    src="{{ url_for('static', filename='images/about/page.png') }}">
-            </div>
-        </div>
-    </div>
-</div>
 
 {% endblock %}
