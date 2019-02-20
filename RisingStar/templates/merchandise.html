@@ -15,9 +15,9 @@
     {% set image_filepath = "images/merch/" + item.image_name %}
     {% set link = "/merchandise/checkout/" + item.name.replace(" ", "-")%}
     {% if loop.index is divisibleby 4 %}
-    </div>
-    <div class="card-deck">
-      <br>
+      </div>
+      <br><br><br>
+      <div class="card-deck">
     {% endif %}
     <div class="card">
       <img id="merch-img" class="card-img-top img-fluid" src="{{ url_for('static', filename=image_filepath) }}" alt="{{item.name}}">
