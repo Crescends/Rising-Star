@@ -10,3 +10,7 @@ def home():
 @home_bp.route('/about')
 def about():
     return render_template('about.html', title="About")
+
+@home_bp.route('/music')
+def music():
+    return render_template('music.html', title="Music")
