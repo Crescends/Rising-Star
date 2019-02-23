@@ -5,4 +5,8 @@ home_bp = Blueprint('home_bp', __name__, template_folder='templates', static_url
 @home_bp.route('/')
 @home_bp.route('/home')
 def home():
-    return render_template('home.html', title="home")
+    return render_template('home.html', title="Home")
+
+@home_bp.route('/about')
+def about():
+    return render_template('about.html', title="About")
