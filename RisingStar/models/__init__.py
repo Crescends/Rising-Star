@@ -10,7 +10,7 @@ def init_app(app: Flask):
     db.app = app
     db.drop_all()
     db.create_all()
-    add_merch()
+    #add_merch()
     
 
 __all__ = ["db", "User", "Post", "Merchandise"]
