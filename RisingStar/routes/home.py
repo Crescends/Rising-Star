@@ -24,6 +24,7 @@ def music():
 class Song:
     def __init__(self, name, file_name, description):
         self.name = name
-        self.front = f"images/music/{file_name}Front.png"
+        self.front = f"images/music/{file_name}Front.PNG"
         self.back = f"images/music/{file_name}Back.png"
         self.description = description
+
