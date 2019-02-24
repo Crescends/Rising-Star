@@ -8,6 +8,7 @@ def init_app(app: Flask):
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
     db.init_app(app)
     db.app = app
+    db.drop_all()
     db.create_all()
     add_merch()
 
