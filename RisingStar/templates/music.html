@@ -1,49 +1,25 @@
 {% extends 'layout.html' %}
 {% block scripts %}
-
-<script>
-// Set the date we're counting down to
-var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
-
-// Update the count down every 1 second
-setInterval(function() {
-
-  // Get todays date and time
-  var now = new Date().getTime();
-
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="countdownTimer"
-  document.getElementById("countdownTimer").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-
-  // If the count down is finished, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("countdownTimer").innerHTML = "EXPIRED";
-  }
-}, 1000);
-</script>
+<script src="{{url_for('static', filename='js/countdown.js')}}"></script>
 
 {% endblock %}
 
 {% block body %}
-<h1 id="countdownTimer"> </h1>
-{% for cover in covers %}
-    {% set cover_path = "images/music" + cover %}
-    <div class="card-deck">
-        <img src="" alt="" class="card-img-top img-fulid">
+<div class="card-deck">
+    {% for cover in covers %}
+    <div class="card">
+        <img src="{{ url_for('static', filename=cover.front) }}" class="card-img-top img-thumnail album-cover">
         <div class="card-body">
-            <div class="card-title">{{cover}}</div>
-            <div class="card-text">An amazing albulm</div>
+            <h5 class="card-title">{{cover.name}}</h5>
+            <p class="card-text"> {{cover.description}} </p>
         </div>
     </div>
-{% endfor %}
+    {% endfor %}
+</div>
+<br>
+<div class="card">
+    <img src="{{url_for('static', filename='images/music/teaser.jpg')}}" class="card-img-top img-fluid" style="height:50vw;">
+    <h5 class="card-text">Be on the look out for his next ablum. Realeasing in </h5>
+    <h3 id="countdown-timer" class="text-danger card-text"></h3>
+</div>
 {% endblock body %}
