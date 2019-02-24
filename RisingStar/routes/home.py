@@ -13,4 +13,5 @@ def about():
 
 @home_bp.route('/music')
 def music():
-    return render_template('music.html', title="Music")
+    covers = ["Abstract", "Growth", "Smoke"]
+    return render_template('music.html', covers=covers, title="Music")
