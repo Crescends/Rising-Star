@@ -1,0 +1,20 @@
+body{
+    background-color: gray;
+}
+#background {
+    /* The image used */
+    background-image: url('../images/concert.jpg');
+  
+    /* Full height */
+    height: 100%; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#header{
+    background-color: gray;
+}
