@@ -2,29 +2,26 @@
 
 {% block body %}
 <div class="jumbotron">
-                  <h1 class="display-4">Campfire Merchandise</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-    featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-
+  <h1 class="display-4">Campfire Merchandise</h1>
+  <p class="lead">Support Campfire by buying the latest and hottest of his merchandise! Currently 10% of all profits are going towards the Enviroment Awareness project/charity!</p>
+ 
 </div>
 
 <div class="card-deck">
   {% for item in merch %}
     {% set image_filepath = "images/merch/" + item.image_name %}
     {% set link = "/merchandise/checkout/" + item.name.replace(" ", "-")%}
-    {% if loop.index is divisibleby 4 %}
+    {% if (loop.index - 1) is divisibleby 3%}
       </div>
-      <br><br><br>
+      <br><br>
       <div class="card-deck">
     {% endif %}
     <div class="card">
-      <img id="merch-img" class="card-img-top img-fluid" src="{{ url_for('static', filename=image_filepath) }}" alt="{{item.name}}">
+      <img class="merch-img card-img-top img-fluid" src="{{ url_for('static', filename=image_filepath) }}" alt="{{item.name}}">
       <div class="card-body">
-        <h5 class="card-title"> {{item.name}} </h5>
+        <h5 class="card-title">{{item.name}} </h5>
         <p class="card-text">{{item.cost}}</p>
-        <a href={{link}} class="card-link">Add To Cart</a>
+        <a href={{link}} class="btn btn-primary card-link">Add To Cart</a>
       </div>
     </div>
   {% endfor %}

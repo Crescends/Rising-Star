@@ -1,5 +1,25 @@
 {% extends 'layout.html' %}
+{% block scripts %}
+<script src="{{url_for('static', filename='js/countdown.js')}}"></script>
+
+{% endblock %}
 
 {% block body %}
-
+<div class="card-deck">
+    {% for cover in covers %}
+    <div class="card">
+        <img src="{{ url_for('static', filename=cover.front) }}" class="card-img-top img-thumnail album-cover">
+        <div class="card-body">
+            <h5 class="card-title">{{cover.name}}</h5>
+            <p class="card-text"> {{cover.description}} </p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<br>
+<div class="card">
+    <img src="{{url_for('static', filename='images/music/teaser.jpg')}}" class="card-img-top img-fluid" style="height:50vw;">
+    <h5 class="card-text">Be on the look out for his next ablum. Realeasing in </h5>
+    <h3 id="countdown-timer" class="text-danger card-text"></h3>
+</div>
 {% endblock body %}

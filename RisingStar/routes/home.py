@@ -13,4 +13,17 @@ def about():
 
 @home_bp.route('/music')
 def music():
-    return render_template('music.html', title="Music")
+    covers = [
+        Song("Smoke From The Ashes","Smoke", "\"Sometimes the hardest thing and the right thing are the same.\" -The Fray \nCampfire debuts with his first album."),
+        Song("Growth", "Growth","\"A goal withouut a plan is just a wish.\" - Jeff Rich. \nCampfire shares his story of becoming famous and the fears that arise from populatity and reveals it is a 2 edged sword"),
+        Song("Abstract", "Abstract", "To dive into the knowledge that you have within you, you must first understand yourself. \nCampfire dives into his darkest fears and confronts them with the help of his friends")
+    ]
+    return render_template('music.html', covers=covers, title="Music")
+
+
+class Song:
+    def __init__(self, name, file_name, description):
+        self.name = name
+        self.front = f"images/music/{file_name}Front.png"
+        self.back = f"images/music/{file_name}Back.png"
+        self.description = description
