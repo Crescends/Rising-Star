@@ -23,7 +23,7 @@
       <img id="merch-img" class="card-img-top img-fluid" src="{{ url_for('static', filename=image_filepath) }}" alt="{{item.name}}">
       <div class="card-body">
         <h5 class="card-title"> {{item.name}} </h5>
-        <p class="card-text">$ {{item.cost}}</p>
+        <p class="card-text">{{item.cost}}</p>
         <a href={{link}} class="card-link">Add To Cart</a>
       </div>
     </div>
