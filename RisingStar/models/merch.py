@@ -12,24 +12,22 @@ class Merchandise(db.Model):
     def __repr__(self):
         return f"{self.type}: {self.name} costs {self.cost}"
 
-hoodie = Merchandise(type="hoodie", name="Black Campfire Jacket", cost=locale.currency(30.00), image_name="hoodie1.jpeg")
+hoodie = Merchandise(type="hoodie", name="Black Campfire Jacket", cost=locale.currency(30.00), image_name="hoodie1.jpg")
 bandana = Merchandise(type="bandana", name="Black Campfire Bandana", cost=locale.currency(2.50), image_name="bandana1.jpeg")
 pillow = Merchandise(type="pillow", name="Black Campfire Pillow", cost=locale.currency(25), image_name="pillow1.jpeg")
 shirt = Merchandise(type="shirt", name="Black Campfire Shirt", cost=locale.currency(25), image_name="shirt1.jpeg")
 sweat_shirt = Merchandise(type="sweat_shirt", name="Black Campfire Sweat Shirt", cost=locale.currency(25), image_name="sweat_shirt1.jpeg")
+sweat_shirt2 = Merchandise(type="sweat_shirt", name="Abstract Campfire Sweat Shirt", cost=locale.currency(25), image_name="sweat_shirt2.jpeg")
 tank = Merchandise(type="tank", name="Black Campfire Tank Top", cost=locale.currency(25), image_name="tank1.jpeg")
+poster = Merchandise(type="poster", name="Campfire Poster", cost=locale.currency(10), image_name="artist1.png")
+pants = Merchandise(type="pants", name="White Abstract Pants", cost=locale.currency(25), image_name="sweatpants1.jpg")
 
+merch = [hoodie, bandana, pillow, shirt, sweat_shirt, sweat_shirt2, tank, poster, pants]
 def add_merch():
-    db.session.add(hoodie)
-    db.session.add(bandana)
-    db.session.add(pillow)
-    db.session.add(shirt)
-    db.session.add(sweat_shirt)
-    db.session.add(tank)
+    for item in merch:
+        db.session.add(item)
     db.session.commit()
 """
     Not yet added
-    poster = Merchandise(type="poster", name="Black Campfire Poster", cost=25, image_name="poster1.jpeg")
-    pants = Merchandise(type="pants", name="Black Campfire Pants", cost=25, image_name="pants1.jpeg")
     album = Merchandise(type="album", name="Black Campfire Album", cost=25, image_name="album1.jpeg")
 """
