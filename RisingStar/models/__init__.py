@@ -18,8 +18,10 @@ def init_app(app: Flask):
     try:
         Merchandise.__table__.create(engine)
         db.session.commit()
-    except:
+    except Exception as e:
+        print(e)
         db.session.rollback()
-    add_merch()
+    if not merch_has_values():
+        add_merch()
 
 __all__ = ["db", "User", "Post", "Merchandise"]
