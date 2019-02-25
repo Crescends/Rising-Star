@@ -1,6 +1,13 @@
 body{
     background-color: gray;
 }
+
+footer{
+    background-color: beige;
+    opacity: 0.5;
+    
+}
+
 #background {
     /* The image used */
     background-image: url('../images/concert.jpg');
