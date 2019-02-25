@@ -13,8 +13,8 @@ def init_app(app: Flask):
     if merch_exists(engine):
         Merchandise.__table__.drop(engine)
         db.session.commit()
-    Merchandise.__table__.create(engine)
+    #Merchandise.__table__.create(engine)
     db.session.commit()
-    add_merch()
+    #add_merch()
 
 __all__ = ["db", "User", "Post", "Merchandise"]
