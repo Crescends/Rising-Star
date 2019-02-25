@@ -27,6 +27,9 @@ def add_merch():
     for item in merch:
         db.session.add(item)
     db.session.commit()
+
+def merch_exists():
+    return Merchandise.query.first() is not None # Check if empty
 """
     Not yet added
     album = Merchandise(type="album", name="Black Campfire Album", cost=25, image_name="album1.jpeg")
