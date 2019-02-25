@@ -19,7 +19,7 @@ def init_app(app: Flask):
         Merchandise.__table__.create(engine)
         db.session.commit()
     except Exception as e:
-        print(e)
+        print("An exception has occured")
         db.session.rollback()
     if not merch_has_values():
         print("Merchandise table has no values. Adding values")
