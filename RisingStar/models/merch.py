@@ -28,6 +28,9 @@ def add_merch():
         db.session.add(item)
     db.session.commit()
 
+def merch_has_values():
+    return Merchandise.query.first() is not None
+
 def merch_exists(engine):
     return engine.dialect.has_table(engine, "merchandise")
 """
