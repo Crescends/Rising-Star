@@ -10,12 +10,12 @@ def init_app(app: Flask):
     db.init_app(app)
     db.app = app
     engine = db.get_engine()
+
     if merch_exists(engine):
-        if not(merch_has_values()):
-            add_merch()
-    else:
-        Merchandise.__table__.create(engine)
+        Merchandise.__table__.drop(engine)
         db.session.commit()
-        add_merch()
+    Merchandise.__table__.create(engine, checkfirst=True)
+    db.session.commit()
+    add_merch()
 
 __all__ = ["db", "User", "Post", "Merchandise"]
