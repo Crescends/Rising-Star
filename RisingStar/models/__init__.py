@@ -18,7 +18,7 @@ def init_app(app: Flask):
     try:
         Merchandise.__table__.create(engine)
         db.session.commit()
-    except:
+    except :
         pass
     add_merch()
 
