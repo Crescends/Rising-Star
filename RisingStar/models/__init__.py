@@ -2,7 +2,7 @@ from flask import Flask
 from .base import db
 from .users import User
 from .posts import Post
-from .merch import Merchandise, add_merch, merch_exists
+from .merch import Merchandise, add_merch, merch_exists, merch_has_values
 
 def init_app(app: Flask):
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
