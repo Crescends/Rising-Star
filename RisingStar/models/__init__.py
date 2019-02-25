@@ -22,6 +22,7 @@ def init_app(app: Flask):
         print(e)
         db.session.rollback()
     if not merch_has_values():
+        print("Merchandise table has no values. Adding values")
         add_merch()
 
 __all__ = ["db", "User", "Post", "Merchandise"]
