@@ -33,7 +33,7 @@ def merch_has_values():
     return Merchandise.query.first() is not None
 
 def merch_exists(engine):
-    return engine.dialect.has_table(engine, "Merchandise")
+    return engine.dialect.has_table(engine, "merchandise")
 """
     Not yet added
     album = Merchandise(type="album", name="Black Campfire Album", cost=25, image_name="album1.jpeg")
