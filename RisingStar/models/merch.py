@@ -25,7 +25,8 @@ pants = Merchandise(type="pants", name="White Abstract Pants", cost=locale.curre
 
 merch = [hoodie, bandana, pillow, shirt, sweat_shirt, sweat_shirt2, tank, poster, pants]
 def add_merch():
-    db.session.add_all(*merch)
+    for item in merch:
+        db.session.add(item)
     db.session.commit()
 
 def merch_has_values():
