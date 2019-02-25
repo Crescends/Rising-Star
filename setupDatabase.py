@@ -1,6 +1,6 @@
 import sqlalchemy
 import RisingStar.models as models
-from RisingStar import create_website()
+from RisingStar import create_website
 
 app = create_website()
 
