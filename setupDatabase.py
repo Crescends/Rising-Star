@@ -6,9 +6,9 @@ app = create_website()
 
 engine = models.base.db.get_engine()
 models.Merchandise.__table__.create(engine)
-db.session.commit()
+models.db.session.commit()
 print("created merchandise")
 if not models.merch_has_values():
     print("adding values to merch")
     models.add_merch()
-    db.session.commit()
+    models.db.session.commit()
