@@ -15,7 +15,7 @@ def init_app(app: Flask):
         print("The merchandise table exists. Clearing table to enusure no duplicates")
         Merchandise.__table__.drop(engine)
         db.session.commit()
-    Merchandise.__table__.create(engine, checkfirst=False)
+    Merchandise.__table__.create(engine)
     db.session.commit()
     add_merch()
 
