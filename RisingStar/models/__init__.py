@@ -8,8 +8,9 @@ def init_app(app: Flask):
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
     db.init_app(app)
     db.app = app
-    if merch_exists():
-        Merchandise.__table__.drop(db.get_engine())
+    engine = db.get_engine()
+    if merch_exists(engine):
+        Merchandise.__table__.drop(engine)
     db.create_all() 
     db.session.commit()
     add_merch()

@@ -28,8 +28,8 @@ def add_merch():
         db.session.add(item)
     db.session.commit()
 
-def merch_exists():
-    return Merchandise.query.first() is not None # Check if empty
+def merch_exists(engine):
+    return engine.dialect.has_table(engine, "merchandise")
 """
     Not yet added
     album = Merchandise(type="album", name="Black Campfire Album", cost=25, image_name="album1.jpeg")
