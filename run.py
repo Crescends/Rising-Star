@@ -1,4 +1,5 @@
 import RisingStar
+import setupDatabase
 
 app = RisingStar.create_website() 
 
