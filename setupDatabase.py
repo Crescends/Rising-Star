@@ -12,3 +12,4 @@ if not models.merch_has_values():
     print("adding values to merch")
     models.add_merch()
     models.db.session.commit()
+print(models.Merchandise.query.first())
