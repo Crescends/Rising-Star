@@ -12,6 +12,7 @@ def init_app(app: Flask):
     engine = db.get_engine()
 
     if merch_exists(engine):
+        print("The merchandise table exists. Clearing table to enusure no duplicates")
         Merchandise.__table__.drop(engine)
         db.session.commit()
     Merchandise.__table__.create(engine, checkfirst=False)
