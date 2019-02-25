@@ -14,7 +14,7 @@ def init_app(app: Flask):
     if merch_exists(engine):
         Merchandise.__table__.drop(engine)
         db.session.commit()
-    Merchandise.__table__.create(engine, checkfirst=True)
+    Merchandise.__table__.create(engine, checkfirst=False)
     db.session.commit()
     add_merch()
 
