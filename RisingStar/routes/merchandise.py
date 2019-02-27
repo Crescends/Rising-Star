@@ -6,7 +6,7 @@ merch_bp = Blueprint('merch_bp', __name__, template_folder='templates', static_u
 
 @merch_bp.route('/merchandise')
 def merchandise():
-    return render_template('tempMerch.html')
+    return render_template('merchandise.html', merch=Merchandise.query.all())
 
 @merch_bp.route('/merchandise/checkout/<item>')
 def checkout(item):
