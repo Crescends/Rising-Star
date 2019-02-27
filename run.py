@@ -1,5 +1,5 @@
 import RisingStar
-import setup import setupDatase
+from setup import setupDatase
 setupDatase()
 app = RisingStar.create_website() 
 if __name__ == '__main__':

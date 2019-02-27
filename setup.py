@@ -8,8 +8,6 @@ def setup_datbase():
     try:
         models.Merchandise.__table__.create(engine)
     except:
-        models.Merchandise.__table__.drop(engine)
-        models.Merchandise.__table__.create(engine)
         pass
     models.db.session.commit()
 
