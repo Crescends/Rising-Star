@@ -3,6 +3,7 @@ import locale
 
 locale.setlocale(locale.LC_ALL, '')
 class Merchandise(db.Model):
+    __tablename__ = "merchandise"
     id = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.String(20), unique=False, nullable=False)
     name = db.Column(db.Integer, nullable=True) # the display name
@@ -27,6 +28,12 @@ def add_merch():
     for item in merch:
         db.session.add(item)
     db.session.commit()
+
+def merch_has_values():
+    return Merchandise.query.first() is not None
+
+def merch_exists(engine):
+    return engine.dialect.has_table(engine, "merchandise")
 """
     Not yet added
     album = Merchandise(type="album", name="Black Campfire Album", cost=25, image_name="album1.jpeg")

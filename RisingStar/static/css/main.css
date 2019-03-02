@@ -1,16 +1,23 @@
 body{
     background-color: gray;
 }
+
+footer{
+    background-color: beige;
+    opacity: 0.5;
+    
+}
+.checkout-img{
+    border-right: 2px solid red;
+}
 #background {
     /* The image used */
     background-image: url('../images/concert.jpg');
-  
     /* Full height */
     height: 100%; 
-  
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
-background-position: center;
+    background-position: center;
     /*background-repeat: no-repeat;*/
     background-size: cover;
 }
