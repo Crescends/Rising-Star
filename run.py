@@ -1,6 +1,4 @@
 import RisingStar
-from setup import setup_datbase
-setup_datbase()
 
 app = RisingStar.create_website() 
 if __name__ == '__main__':

@@ -2,21 +2,9 @@ import sqlalchemy
 import RisingStar.models as models
 from RisingStar import create_website
 
-def setup_datbase():
+def setup_database():
     app = create_website()
     engine = models.base.db.get_engine()
-    try:
-        models.Merchandise.__table__.create(engine)
-    except:
-        print("Table already exists")
-        models.Merchandise.__table__.drop(engine)
-        models.Merchandise.__table__.create(engine)
-        pass
-    models.db.session.commit()
-
-    print("created merchandise")
-    if not models.merch_has_values():
-        print("adding values to merch")
-        models.add_merch()
-        models.db.session.commit()
-    print(models.Merchandise.query.all())
+    models.db.drop_all()
+    models.db.create_all()
+    models.add_merch()
