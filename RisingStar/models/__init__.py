@@ -2,14 +2,12 @@ from flask import Flask
 from .base import db
 from .users import User
 from .posts import Post
-from .merch import Merchandise, add_merch
+from .merch import Merchandise, add_merch, merch_exists, merch_has_values
 
 def init_app(app: Flask):
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://LVkIsa44od:08SyDIvbeW@remotemysql.com/LVkIsa44od'
     db.init_app(app)
     db.app = app
-    db.drop_all()
-    db.create_all()
-    add_merch()
 
 __all__ = ["db", "User", "Post", "Merchandise"]
