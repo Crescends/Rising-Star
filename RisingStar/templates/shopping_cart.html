@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <div class="card">
+        <ul class="list-group list-group-flush">
+            {% for order in current_user.orders %}
+                {% set image_filepath = "images/merch/" + order.image_name %}
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img class="cart-img" src="{{url_for('static', filename=image_filepath)}}" alt="{{order.name}}">
+                        </div>
+                        <div class="card-body">
+                            <div class="col-md-8">
+                                <h5 class="card-text"> {{order.name}} </h5>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

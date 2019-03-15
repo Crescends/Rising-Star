@@ -19,8 +19,21 @@
                     <a class="nav-link text-light" href="/music">Music</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link text-light" href="/forum">Forum</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link text-light" href="/about">About</a>
                 </li>
+            </ul>
+            <ul class="navbar-nav">
+                {% if current_user.is_authenticated %}
+                    <a href="/merchandise/shopping-cart" class="fas fa-shopping-cart nav-item"><span class="badge badge-pill badge-primary">9</span></a>
+                    <a href="/account" class="nav-item nav-link text-light">Account</a>
+                    <a href="/logout" class="nav-item nav-link text-light">Logout</a>
+                {% else %}
+                    <a href="/login" class="nav-item nav-link text-light">Login</a>
+                    <a href="/register" class="nav-item nav-link text-light">Register</a>
+                {% endif %}
             </ul>
         </div>
     </div>
