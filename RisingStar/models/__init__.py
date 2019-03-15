@@ -7,6 +7,7 @@ from .merch import Merchandise, add_merch, merch_exists, merch_has_values
 def init_app(app: Flask):
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://LVkIsa44od:08SyDIvbeW@remotemysql.com/LVkIsa44od'
+    # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
     db.init_app(app)
     db.app = app
 
