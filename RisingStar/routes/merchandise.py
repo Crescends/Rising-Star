@@ -1,6 +1,6 @@
 from flask import Blueprint, url_for, redirect
 from flask import render_template, request, flash, redirect
-from RisingStar.models import Merchandise, db
+from RisingStar.models import Merchandise, db, Order
 from flask_login import current_user, login_required
 
 merch_bp = Blueprint('merch', __name__, template_folder='templates', static_url_path='static')
@@ -22,12 +22,19 @@ def shopping_cart():
 
 @merch_bp.route('/merchandise/add')
 def add_to_cart():
+    if not current_user.shopping_cart:
+        current_user.orders.append(Order(is_cart=True, user=current_user))
     merch_id = request.args.get('id', type=int)
     if merch_id is None:
         flash("An error has occured please try again", "danger")
-    else:
+    else: 
         order = Merchandise.query.get(merch_id)
-        current_user.orders.append(order)
+        current_user.shopping_cart.merch.append(order)
         db.session.commit()
         flash("The stuff has been added", "success")
+    return redirect(url_for("merch.merchandise"))
+
+@merch_bp.route('/merchandise/checkout-cart')
+@login_required
+def checkout_cart():
     return redirect(url_for("merch.merchandise"))

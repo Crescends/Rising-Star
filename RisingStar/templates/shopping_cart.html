@@ -2,7 +2,7 @@
 {% block body %}
     <div class="card">
         <ul class="list-group list-group-flush">
-            {% for order in current_user.orders %}
+            {% for order in current_user.shopping_cart %}
                 {% set image_filepath = "images/merch/" + order.image_name %}
                 <li class="list-group-item">
                     <div class="row">

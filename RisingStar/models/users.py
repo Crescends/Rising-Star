@@ -13,7 +13,11 @@ class User(db.Model, UserMixin):
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
     posts = db.relationship('Post', backref='author', lazy=True)
-    orders = db.relationship('Order', lazy=True, backref="customer")
+    orders = db.relationship('Order', lazy=True, backref="customer") # index 0 is always the shopping cart
+
+    @property
+    def shopping_cart(self):
+        return self.orders[0] if self.orders else None
 
     def __repr__(self):
         return f"<User> {self.username}, {self.email}"

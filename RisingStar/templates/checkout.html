@@ -21,16 +21,6 @@
                 <p>Fresh {{item.type}} straight from the ashes. This {{item.type}} is specially
                     handcrafted for comfort of the frehsest cotton avalaiable.
                 </p>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputGroupSelect01">Quantity</label>
-                    </div>
-                    <select class="custom-select" id="inputGroupSelect01">
-                        {% for i in range(1, 26) %}
-                            <option value="{{i}}">{{i}}</option>
-                        {% endfor %}
-                    </select>
-                </div>
                 <h3>Price: {{item.cost}}</h3>
                 <p hidden class="hidden" id="merchId">{{item.id}}</p>
                 <a id="purchaseButton" href="{{purchaseCallback}}" class="btn btn-secondary">Buy Now</a>
