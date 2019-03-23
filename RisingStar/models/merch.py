@@ -7,7 +7,7 @@ class Merchandise(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     type = db.Column(db.String(20), unique=False, nullable=False)
     name = db.Column(db.String(50), nullable=False) # the display name
-    cost = db.Column(db.String(10), nullable=False, default=0)
+    cost = db.Column(db.String(6), nullable=False, default=0)
     image_name = db.Column(db.String(25), nullable=False)
 
     def __repr__(self):
