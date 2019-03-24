@@ -3,7 +3,8 @@ from .base import db
 from .users import User
 from .order import Order
 from .posts import Post
-from .merch import Merchandise, add_merch, merch_exists, merch_has_values
+from .merch import Merchandise
+from .products import Product, add_products, products_exists, products_has_values
 
 def init_app(app: Flask):
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -11,4 +12,4 @@ def init_app(app: Flask):
     db.init_app(app)
     db.app = app
 
-__all__ = ["db", "User", "Post", "Merchandise", "Order"]
+__all__ = ["db", "User", "Post", "Merchandise", "Order", "Product"]

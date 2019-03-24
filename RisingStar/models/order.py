@@ -8,7 +8,7 @@ purchases = db.Table('purchases',
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user = db.Column(db.Integer , db.ForeignKey('user.id'))
-    merch = db.relationship('Merchandise', lazy=True,secondary=purchases, backref="requests")
+    merch = db.relationship('Merchandise', lazy=True,secondary=purchases, backref="order")
     is_cart = db.Column(db.Boolean, nullable=True, default=True)
 
     def __iter__(self):
