@@ -32,5 +32,5 @@ class Song:
         self.description = description
 
 @home_bp.route('/tour')
-def about():
+def tour():
     return render_template('tour.html', title="Tour")

@@ -1,12 +1,3 @@
-body{
-    background-color: gray;
-}
-footer{
-    background-color: beige;
-    opacity: 0.5;
-    
-}
-
 .checkout-img{
     border-right: 2px solid red;
 }
@@ -48,25 +39,3 @@ footer{
     height: 19vw;
     object-fit: cover;
 }
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body, html {
-  height: 100%;
-  margin: 0;
-}
-
-.bg {
-  /* The image used */
-  background-image: url("Frontpic.png");
-
-  /* Full height */
-  height: 50%; 
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-</style>
-</head>
