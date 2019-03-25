@@ -7,6 +7,7 @@
 {% block body %}
 <div class="card-deck">
     {% for cover in covers %}
+    
     <div class="card">
         <img src="{{ url_for('static', filename=cover.front) }}" class="card-img-top img-thumnail album-cover">
         <div class="card-body">
@@ -19,7 +20,8 @@
 <br>
 <div class="card">
     <img src="{{url_for('static', filename='images/music/teaser.jpg')}}" class="card-img-top img-fluid" style="height:50vw;">
-    <h5 class="card-text">Be on the look out for his next album. Releasing in </h5>
-    <h3 id="countdown-timer" class="text-danger card-text"></h3>
+    <h5 class="card-text"><center>Be on the look out for his next ablum. Releasing in</center> </h5>
+<center><h3 id="countdown-timer" class="text-danger card-text"></h3></center>
+
 </div>
 {% endblock body %}
