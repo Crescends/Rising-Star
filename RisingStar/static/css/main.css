@@ -42,7 +42,8 @@ footer{
 }
 
 .tour-img{
-    display: block;
+    width: 1200%;
+    height: 30vw;
 }
 
 .bgimg {
