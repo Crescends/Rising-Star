@@ -1,8 +1,15 @@
 {% extends 'layout.html' %}
 
-{% block body %}
-    <div class="bg"></div>
-    
-    <p>Below are tour dates, locations, and prices all avalible to purchase online!</p>
+{% block style %}
+    <style>
+        .tour-img{
+            width: 100%;
+        }
+    </style>
 
+{% endblock %}
+
+{% block body %}    
+    <p>Below are tour dates, locations, and prices all avalible to purchase online!</p>
+    <img src="{{url_for('static', filename='images/tour/Frontpic.PNG')}}" class="tour-img" alt="...">
 {% endblock %}
