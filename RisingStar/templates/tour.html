@@ -1,8 +1,18 @@
 {% extends 'layout.html' %}
 
-{% block body %}
-    <div class="bg"></div>
-    
-    <p>Below are tour dates, locations, and prices all avalible to purchase online!</p>
+{% block style %}
+<style>
+    /* add all css here */
+</style>
 
 {% endblock %}
+
+{% block body %}
+<div class="card">    
+<img class="card-img-top" src="/static/images/tour/Frontpic.PNG">
+<div class="card-body">
+    <p class="card-text">Below are tour dates, locations, and prices all avalible to purchase online!</p>
+
+</div>    
+</div>
+    {% endblock %}

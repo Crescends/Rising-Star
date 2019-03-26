@@ -4,6 +4,19 @@
 
 {% endblock %}
 
+{% block style %}
+    <style>
+        .bg-img {
+            background-image: url('../static/images/');
+            height: 100%;
+            background-position: center;
+            color: white;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 25px;
+        }
+    </style>
+{% endblock %}
+
 {% block body %}
 <div class="card-deck">
     {% for cover in covers %}
@@ -19,7 +32,7 @@
 </div>
 <br>
 
-<div class="bgimg">
+<div class="bg-img">
     <div class="text-center">
         <h1>COMING SOON</h1>
         <hr>
