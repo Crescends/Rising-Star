@@ -41,6 +41,10 @@ footer{
     object-fit: cover;
 }
 
+.tour-img{
+    display: block;
+}
+
 .bgimg {
     background-image: url('../images/music/coming.jpg');
     height: 100%;
