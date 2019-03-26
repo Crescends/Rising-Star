@@ -41,22 +41,6 @@ footer{
     object-fit: cover;
 }
 
-.tour-img{
-    width: 1200px;
-    height: 90%;
-}
-
-.bgimg {
-    background-image: url('../images/music/coming.jpg');
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    color: white;
-    font-family: "Courier New", Courier, monospace;
-    font-size: 25px;
-}
-
 hr {
     margin: auto;
     border-bottom: 2px solid black;
