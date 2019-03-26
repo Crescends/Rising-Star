@@ -31,3 +31,6 @@ class Song:
         self.back = f"images/music/{file_name}Back.png"
         self.description = description
 
+@home_bp.route('/tour')
+def tour():
+    return render_template('tour.html', title="Tour")

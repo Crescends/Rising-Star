@@ -1,12 +1,3 @@
-body{
-    background-color: gray;
-}
-footer{
-    background-color: beige;
-    opacity: 0.5;
-    
-}
-
 .checkout-img{
     border-right: 2px solid red;
 }
@@ -25,7 +16,10 @@ footer{
 #header{
     background-color: gray;
 }
-
+footer{
+    background-color: beige;
+    opacity: 0.5;
+}
 .merch-img{
     width: 1200px;
     height: 100%;
@@ -45,4 +39,21 @@ footer{
     width: 100%;
     height: 19vw;
     object-fit: cover;
+}
+
+.bgimg {
+    background-image: url('../images/music/coming.jpg');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+}
+
+hr {
+    margin: auto;
+    border-bottom: 2px solid black;
+    width: 40%;
 }
