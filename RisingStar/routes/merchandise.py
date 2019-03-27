@@ -11,16 +11,20 @@ def search():
 
     t = args.get("type", None, type=str)
     chosen_products = Product.query
-    if t:
-        print("Changing type", t)
+    if t:        
         chosen_products = chosen_products.filter_by(type=t)
-        print(chosen_products.all())
+
     price = args.get("price", None)
     if price:
-        print("Changeing price")
         chosen_products.filter_by(price=price)
-
-    return render_template('merchandise.html', merch=chosen_products)
+    
+    album = args.get("album", None)
+    if album:    
+        print("choosing album", album)
+        chosen_products.filter_by(album=album)
+    albums = ["Abstract", "Smoke", "Growth"]
+    types = "Shirt", "Tank Top", "Sweatpants", "Iphone Case", "Galaxy Case", "Pillow", "Sweatshirt", "Bandana", "Poster", "Hoodie"
+    return render_template('merchandise.html', albums=albums,merch=chosen_products.all(), types=types)
 
 @merch_bp.route('/merchandise/checkout/<item>')
 @login_required
