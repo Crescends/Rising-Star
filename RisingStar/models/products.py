@@ -10,17 +10,13 @@ class Product(db.Model):
     cost = db.Column(db.String(6), nullable=False, default=0)
     image_name = db.Column(db.String(25), nullable=False)
     requests = db.relationship('Merchandise', backref='product')
+    album = db.Column(db.String(20))
 
     def __repr__(self):
         return f"{self.type}: {self.name} costs {self.cost}"
 
-def add_products():
-    for item in products:
-        db.session.add(item)
-    db.session.commit()
-
 def products_has_values():
-    return Products.query.first() is not None
+    return Product.query.first() is not None
 
 def products_exists(engine):
     return engine.dialect.has_table(engine, "product")
