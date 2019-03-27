@@ -10,6 +10,7 @@ class Product(db.Model):
     cost = db.Column(db.String(6), nullable=False, default=0)
     image_name = db.Column(db.String(25), nullable=False)
     requests = db.relationship('Merchandise', backref='product')
+    album = db.Column(db.String(20))
 
     def __repr__(self):
         return f"{self.type}: {self.name} costs {self.cost}"

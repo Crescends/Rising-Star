@@ -1,24 +1,77 @@
 {% extends 'layout.html' %}
 
+{% block style %}
+<style>
+  .dropdown-menu {
+    width: 200px;
+    left: 50%;
+    margin-left: -100px;
+  }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  $(".dropdown-item").hover(
+    function () {
+      $(this).addClass("bg-primary").addClass("text-white");
+    },
+    function () {
+      $(this).removeClass("bg-primary").removeClass("text-white");
+    }
+  );
+</script>
+{% endblock %}
+
 {% block body %}
-<div class="jumbotron">
+<div class="jumbotron bg-light">
   <h1 class="display-4">Campfire Merchandise</h1>
-  <p class="lead">Support Campfire by buying the latest and hottest of his merchandise! Currently 10% of all profits are going towards the Enviroment Awareness project/charity! Support us towards our goal!</p>
- 
+  <p class="lead">Support Campfire by buying the latest and hottest of his merchandise! Currently 10% of all profits are
+    going towards the Enviroment Awareness project/charity! Support us towards our goal!</p>
 </div>
 
+<div class="card">
+  <div class="card-header">
+    <div class="row">
+      
+      <div class="col">
+        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">Choose Type</a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <a class="dropdown-item" type="button" href="/merchandise">All</a>
+          {% for type in types %}
+          <a class="dropdown-item" type="button" href="{{'/merchandise?type=' + type}}">{{type}}</a>
+          {% endfor %}
+        </div>
+      </div>
+      
+      
+      <div class="col">
+        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">Choose Album</a>
+        <div class="dropdown-menu">
+            {% for album in albums %}
+              <a class="dropdown-item" type="button" href="{{'/merchandise?album=' + album}}">{{album}}</a>
+            {% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 <div class="card-columns">
   {% for item in merch %}
-    {% set image_filepath = "images/merch/" + item.image_name %}
-    {% set link = "/merchandise/checkout/" + item.name %}
-    <div class="card">
-      <img class="merch-img card-img-top img-fluid" src="{{ url_for('static', filename=image_filepath) }}" alt="{{item.name}}">
-      <div class="card-body">
-        <h5 class="card-title">{{item.name}} </h5>
-        <p class="card-text">{{item.cost}}</p>
-        <a href={{link}} class="btn btn-primary card-link">Add To Cart</a>
-      </div>
+  {% set image_filepath = "images/merch/" + item.image_name %}
+  {% set link = "/merchandise/checkout/" + item.name %}
+  <div class="card">
+    <img class="merch-img card-img-top img-fluid" src="{{ url_for('static', filename=image_filepath) }}"
+      alt="{{item.name}}">
+    <div class="card-body">
+      <h5 class="card-title">{{item.name}}</h5>
+      <p class="card-text">{{item.cost}}</p>
+      <a href={{link}} class="btn btn-primary card-link">Add To Cart</a>
     </div>
+  </div>
   {% endfor %}
 </div>
 {% endblock %}
