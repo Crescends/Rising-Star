@@ -1,28 +1,5 @@
 {% extends 'layout.html' %}
 
-{% block style %}
-<style>
-  .dropdown-menu {
-    width: 200px;
-    left: 50%;
-    margin-left: -100px;
-  }
-</style>
-{% endblock %}
-
-{% block scripts %}
-<script>
-  $(".dropdown-item").hover(
-    function () {
-      $(this).addClass("bg-primary").addClass("text-white");
-    },
-    function () {
-      $(this).removeClass("bg-primary").removeClass("text-white");
-    }
-  );
-</script>
-{% endblock %}
-
 {% block body %}
 <div class="jumbotron bg-light">
   <h1 class="display-4">Campfire Merchandise</h1>
@@ -36,11 +13,11 @@
       
       <div class="col">
         <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-          aria-expanded="false">Choose Type</a>
+          aria-expanded="false">{{category_field}}</a>
         <div class="dropdown-menu dropdown-menu-right">
-          <a class="dropdown-item" type="button" href="/merchandise">All</a>
+          <a class="dropdown-item" href="/merchandise">All</a>
           {% for type in types %}
-          <a class="dropdown-item" type="button" href="{{'/merchandise?type=' + type}}">{{type}}</a>
+            <a class="dropdown-item btn" href="{{'?type=' + type}}">{{type}}</a>
           {% endfor %}
         </div>
       </div>
@@ -48,10 +25,10 @@
       
       <div class="col">
         <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-          aria-expanded="false">Choose Album</a>
-        <div class="dropdown-menu">
+          aria-expanded="false">{{album_field}}</a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             {% for album in albums %}
-              <a class="dropdown-item" type="button" href="{{'/merchandise?album=' + album}}">{{album}}</a>
+              <a class="dropdown-item" href="{{'?album=' + album}}">{{album}}</a>
             {% endfor %}
         </div>
       </div>

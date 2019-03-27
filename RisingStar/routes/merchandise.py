@@ -8,23 +8,26 @@ merch_bp = Blueprint('merch', __name__, template_folder='templates', static_url_
 @merch_bp.route('/merchandise')
 def search():
     args = request.args
+    category_field = "All Categories"
+    album_field = "All types"
+    chosen_products = Product.query
 
     t = args.get("type", None, type=str)
-    chosen_products = Product.query
-    if t:        
+    if t:
         chosen_products = chosen_products.filter_by(type=t)
-
+        category_field = t
     price = args.get("price", None)
     if price:
         chosen_products.filter_by(price=price)
-    
+        
     album = args.get("album", None)
     if album:    
         print("choosing album", album)
-        chosen_products.filter_by(album=album)
+        chosen_products = chosen_products.filter_by(album=album)
+        album_field = album
     albums = ["Abstract", "Smoke", "Growth"]
     types = "Shirt", "Tank Top", "Sweatpants", "Iphone Case", "Galaxy Case", "Pillow", "Sweatshirt", "Bandana", "Poster", "Hoodie"
-    return render_template('merchandise.html', albums=albums,merch=chosen_products.all(), types=types)
+    return render_template('merchandise.html', albums=albums,merch=chosen_products.all(), types=types, album_field=album_field, category_field=category_field)
 
 @merch_bp.route('/merchandise/checkout/<item>')
 @login_required

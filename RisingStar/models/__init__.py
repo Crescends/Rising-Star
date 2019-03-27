@@ -4,7 +4,7 @@ from .users import User
 from .order import Order
 from .posts import Post
 from .merch import Merchandise
-from .products import Product, add_products, products_exists, products_has_values
+from .products import Product
 
 def init_app(app: Flask):
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
