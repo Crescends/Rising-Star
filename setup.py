@@ -21,7 +21,7 @@ def add_products():
             price = float(row["PRICE"])
             ablum_type = name.split(" ")[0]
             display_name = f"{ablum_type} {category}"
-            product = Product(type=category, cost=locale.currency(price), name=display_name, image_name=name+'.png')
+            product = Product(album=ablum_type, type=category, cost=locale.currency(price), name=display_name, image_name=name+'.png')
             print(product)
             db.session.add(product)
     db.session.commit()

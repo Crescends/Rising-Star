@@ -6,8 +6,25 @@ from flask_login import current_user, login_required
 merch_bp = Blueprint('merch', __name__, template_folder='templates', static_url_path='static')
 
 @merch_bp.route('/merchandise')
-def merchandise():
-    return render_template("merchandise.html", merch=Product.query.all())
+def search():
+    args = request.args
+
+    t = args.get("type", None, type=str)
+    chosen_products = Product.query
+    if t:        
+        chosen_products = chosen_products.filter_by(type=t)
+
+    price = args.get("price", None)
+    if price:
+        chosen_products.filter_by(price=price)
+    
+    album = args.get("album", None)
+    if album:    
+        print("choosing album", album)
+        chosen_products.filter_by(album=album)
+    albums = ["Abstract", "Smoke", "Growth"]
+    types = "Shirt", "Tank Top", "Sweatpants", "Iphone Case", "Galaxy Case", "Pillow", "Sweatshirt", "Bandana", "Poster", "Hoodie"
+    return render_template('merchandise.html', albums=albums,merch=chosen_products.all(), types=types)
 
 @merch_bp.route('/merchandise/checkout/<item>')
 @login_required
