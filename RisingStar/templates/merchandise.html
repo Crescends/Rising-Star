@@ -10,7 +10,7 @@
 <div class="card-columns">
   {% for item in merch %}
     {% set image_filepath = "images/merch/" + item.image_name %}
-    {% set link = "/merchandise/checkout/" + item.name.replace(" ", "-")%}
+    {% set link = "/merchandise/checkout/" + item.name %}
     <div class="card">
       <img class="merch-img card-img-top img-fluid" src="{{ url_for('static', filename=image_filepath) }}" alt="{{item.name}}">
       <div class="card-body">
