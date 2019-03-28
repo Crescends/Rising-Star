@@ -6,7 +6,7 @@ from flask_login import current_user, login_required
 merch_bp = Blueprint('merch', __name__, template_folder='templates', static_url_path='static')
 
 @merch_bp.route('/merchandise')
-def search():
+def merchandise():
     args = request.args
     category_field = "All Categories"
     album_field = "All types"
@@ -54,10 +54,16 @@ def add_to_cart():
         flash("The stuff has been added", "success")
     return redirect(url_for("merch.merchandise"))
 
-@merch_bp.route('/merchandise/checkout-cart')
+@merch_bp.route('/merchandise/purchase-cart')
 @login_required
 def checkout_cart():
-    return redirect(url_for("merch.merchandise"))
+    shopping_cart = current_user.shopping_cart
+    new_order = Order(customer=current_user, merch=shopping_cart.merch)
+    shopping_cart.merch = []
+    db.session.add(new_order)
+    db.session.commit()
+    return redirect(url_for("merch.shopping_cart"))
+
 
 @merch_bp.route('/merchandise/delete')
 @login_required
