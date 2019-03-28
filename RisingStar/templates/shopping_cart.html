@@ -6,13 +6,13 @@
                 {% set deleteCallback = "/merchandise/delete?id=" + order.id|string %}
                 {% set image_filepath = "images/merch/" + order.product.image_name %}
                 <li class="list-group-item">
-                    <div class="row">
+                    <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img class="cart-img" src="{{url_for('static', filename=image_filepath)}}" alt="{{order.name}}">
+                            <img class="card-img" src="{{url_for('static', filename=image_filepath)}}" alt="{{order.name}}">
                         </div>
+                        <div class="col-md-4">
                         <div class="card-body">
                             <div class="row">
-                            <div class="col-md-11">
                                 <h5 class="card-text"> {{order.product.name}} </h5>
                             </div>
                             <div class="col-md-1">
