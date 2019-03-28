@@ -1,28 +1,71 @@
 {% extends 'layout.html' %}
 {% block body %}
-    <div class="card">
+<div class="card">
+    {% if current_user.shopping_cart %}
+
+    <div class="card-header">
+        <a class="btn btn-primary" href="/merchandise/purchase-cart">Purchase</a>
+        <small>Since this site isnt funded by anything the purchasing process and mailing process will not be
+            included</small>
+    </div>
         <ul class="list-group list-group-flush">
             {% for order in current_user.shopping_cart %}
                 {% set deleteCallback = "/merchandise/delete?id=" + order.id|string %}
                 {% set image_filepath = "images/merch/" + order.product.image_name %}
                 <li class="list-group-item">
-                    <div class="row">
+                    <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img class="cart-img" src="{{url_for('static', filename=image_filepath)}}" alt="{{order.name}}">
+                            <img class="card-img " src="{{url_for('static', filename=image_filepath)}}" alt="{{order.name}}">
                         </div>
-                        <div class="card-body">
-                            <div class="row">
-                            <div class="col-md-11">
-                                <h5 class="card-text"> {{order.product.name}} </h5>
-                            </div>
-                            <div class="col-md-1">
-                                <a href="{{deleteCallback}}"><i class="fa fa-trash" aria-hidden="true"></i></a>
-                            </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <div class="row">
+                                    <h5 class="col-md-11 card-text"> {{order.product.name}} </h5>
+                                    <div class="col-md-1">
+                                        <a href="{{deleteCallback}}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </li>
             {% endfor %}
         </ul>
+    <div class="card-footer">
+        <a class="btn btn-primary" href="/merchandise/purchase-cart">Purchase</a>
+        <small>Since this site isnt funded by anything the purchasing process and mailing process will not be
+            included</small>
     </div>
+    {% else %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card title">Wow such empty</h5>
+            <p class="card-text">
+                You can go to the  <a href="{{url_for('merch.merchandise')}}" class="card-link">merch store</a> to add more to your
+                your shopping cart</a>
+            </p> 
+        </div>
+    </div>
+    {% endif %}
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 {% endblock %}
