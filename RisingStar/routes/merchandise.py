@@ -6,7 +6,7 @@ from flask_login import current_user, login_required
 merch_bp = Blueprint('merch', __name__, template_folder='templates', static_url_path='static')
 
 @merch_bp.route('/merchandise')
-def search():
+def merchandise():
     args = request.args
     category_field = "All Categories"
     album_field = "All types"
@@ -29,10 +29,10 @@ def search():
     types = "Shirt", "Tank Top", "Sweatpants", "Iphone Case", "Galaxy Case", "Pillow", "Sweatshirt", "Bandana", "Poster", "Hoodie"
     return render_template('merchandise.html', albums=albums,merch=chosen_products.all(), types=types, album_field=album_field, category_field=category_field)
 
-@merch_bp.route('/merchandise/checkout/<item>')
+@merch_bp.route('/merchandise/checkout/<string:item>')
 @login_required
 def checkout(item):
-    item = Product.query.filter_by(name=item.replace("-", " ")).first()
+    item = Product.query.get_or_404(request.args.get("id"))
     return render_template('checkout.html', title=f"Checkout {item.name}" ,item=item)
 
 @merch_bp.route('/merchandise/shopping-cart')
