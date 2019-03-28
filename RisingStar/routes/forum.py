@@ -1,11 +1,10 @@
 from flask import Blueprint, render_template, flash, redirect, url_for, request
 from RisingStar.forms import RegistrationForm, LoginForm
 from RisingStar.ext import bcrypt
-from RisingStar.models import db, User
+from RisingStar.models import db, User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 
 forum = Blueprint('forum', __name__, template_folder='templates', static_url_path='static/forum')
-
 
 @forum.route('/register', methods=["GET", "POST"])
 def register():
@@ -23,7 +22,7 @@ def register():
 
 @forum.route('/forum')
 def main():
-    return render_template('forum.html')
+    return render_template('forum.html', posts=Post.query.all())
 
 @forum.route('/login', methods=["GET", "POST"])
 def login():
