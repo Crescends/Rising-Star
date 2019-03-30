@@ -34,7 +34,8 @@ def add_products():
             product = Product(album=ablum_type, type=category, cost=locale.currency(price), name=display_name, image_name=name+'.png')
             print(product)
             db.session.add(product)
+    ticket = Product(type="Tour Ticket", cost=locale.currency(100), name="Normal Tour Admission Ticket")
+    vip_ticket = Product(type="Tour Ticket", cost=locale.currency(180), name="VIP Tour Admission Ticket")
+    db.session.add(ticket)
+    db.session.add(vip_ticket)
     db.session.commit()
-
-create_website()
-add_dummy_posts()

@@ -26,3 +26,16 @@ class LoginForm(FlaskForm):
     password = PasswordField("Password", validators=[DataRequired()])
     remember = BooleanField("Remember Me")
     submit = SubmitField("Join the Forum")
+
+class ChangePassword(FlaskForm):
+    old_password = PasswordField("Old Password", validators=[DataRequired()])
+    new_password = PasswordField("New Password", validators=[DataRequired()])
+    confirm_password = PasswordField("Confirm New Password", validators=[DataRequired()])
+    submit = SubmitField("Change Password")
+
+class ChangeUserName():
+    user_name = StringField("New User Name", validators=[DataRequired(), Length(min=2, max=20)])
+    submit = SubmitField("Change User Name")
+
+class AddProfilePicture():
+    hi: int
