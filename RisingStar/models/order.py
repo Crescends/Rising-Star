@@ -1,14 +1,14 @@
 from .base import db
-
+from datetime import datetime
 purchases = db.Table('purchases',
     db.Column("merch_id", db.Integer, db.ForeignKey('merchandise.id'), primary_key=True),
     db.Column("order_id", db.Integer, db.ForeignKey('order.id'), primary_key=True))
-
 
 class Order(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user = db.Column(db.Integer , db.ForeignKey('user.id'))
     merch = db.relationship('Merchandise', lazy=True,secondary=purchases, backref="order")
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     is_cart = db.Column(db.Boolean, nullable=True, default=True)
 
     def __iter__(self):
