@@ -20,11 +20,6 @@ footer{
     background-color: beige;
     opacity: 0.5;
 }
-.merch-img{
-    width: 1200px;
-    height: 100%;
-    object-fit: cover;
-}
 
 .about-img{
     display: block;
