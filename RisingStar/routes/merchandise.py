@@ -28,9 +28,9 @@ def merchandise():
     types = "Shirt", "Tank Top", "Sweatpants", "Iphone Case", "Galaxy Case", "Pillow", "Sweatshirt", "Bandana", "Poster", "Hoodie"
     return render_template('merchandise.html', albums=albums,merch=chosen_products.all(), types=types, album_field=album_field, category_field=category_field)
 
-@merch_bp.route('/merchandise/checkout/<string:item>')
+@merch_bp.route('/merchandise/checkout/')
 @login_required
-def checkout(item):
+def checkout():
     item = Product.query.get_or_404(request.args.get("id"))
     return render_template('checkout.html', title=f"Checkout {item.name}" ,item=item)
 
