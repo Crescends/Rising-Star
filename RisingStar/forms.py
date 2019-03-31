@@ -41,7 +41,7 @@ class ChangePasswordForm(FlaskForm):
 
 class UpdateAccountForm(FlaskForm):
     username = StringField("New User Name", validators=[DataRequired(), Length(min=2, max=20)])
-    picture = FileField("Update Profile Picture", validators=[DataRequired(), FileAllowed('jpg', 'png')])
+    picture = FileField("Update Profile Picture", validators=[FileAllowed(['jpg', 'png', 'gif'], message="Please only choose an image")])
     submit2 = SubmitField("Update")
 
     def validate_username(self, username):

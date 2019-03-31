@@ -18,8 +18,7 @@ def merchandise():
         category_field = t
     price = args.get("price", None)
     if price:
-        chosen_products.filter_by(price=price)
-        
+        chosen_products.filter_by(price=price)    
     album = args.get("album", None)
     if album:    
         print("choosing album", album)
@@ -58,12 +57,11 @@ def add_to_cart():
 @login_required
 def checkout_cart():
     shopping_cart = current_user.shopping_cart
-    new_order = Order(customer=current_user, merch=shopping_cart.merch)
+    new_order = Order(customer=current_user, merch=shopping_cart.merch, is_cart=False)
     shopping_cart.merch = []
     db.session.add(new_order)
     db.session.commit()
     return redirect(url_for("merch.shopping_cart"))
-
 
 @merch_bp.route('/merchandise/delete')
 @login_required

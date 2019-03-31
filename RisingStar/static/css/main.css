@@ -21,6 +21,10 @@ footer{
     opacity: 0.5;
 }
 
+.card{
+    border: none;
+}
+
 .about-img{
     display: block;
 }
