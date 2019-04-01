@@ -1,9 +1,11 @@
-from flask import Blueprint, render_template, flash, redirect, url_for, request
+from flask import Blueprint, render_template, flash, redirect, url_for, request, current_app
 from RisingStar.forms import RegistrationForm, LoginForm, ChangePasswordForm, UpdateAccountForm
 from RisingStar.ext import bcrypt
 from RisingStar.models import db, User, Post
 from flask_login import login_user, current_user, logout_user, login_required
 import random
+import secrets
+import os
 
 forum = Blueprint('forum', __name__, template_folder='templates', static_url_path='static/forum')
 
@@ -48,6 +50,13 @@ def logout():
     flash("You have been logged out", 'info')
     return redirect(url_for('home.home'))
 
+def save_picture(picture):
+    random_hex = secrets.token_hex(8)
+    _, f_ext = os.path.splitext(picture.filename)
+    pic_filename = random_hex + f_ext 
+    p_path = os.path.join(current_app.root_path, 'static', 'images', 'profile_pics',pic_filename)
+    picture.save(p_path)
+    return pic_filename
 
 @forum.route('/account', methods=["POST", "GET"])
 @login_required
@@ -63,10 +72,15 @@ def account():
         db.session.commit()
 
     if update_acct.submit2.data and update_acct.validate_on_submit():
-        print('data')
+        print('valid')
+        if update_acct.picture.data:
+            image_file = save_picture(update_acct.picture.data)
+            current_user.image_file = image_file
+
         current_user.username = update_acct.username.data
-        print(current_user.username)
         flash('Your username has been updated!', 'success')
         db.session.commit()
+    if request.method == 'GET':
+        update_acct.username.data = current_user.username
     img_src = url_for("static", filename=f'images/profile_pics/{current_user.image_file}')
     return render_template('account.html', title="Account", pssd=pass_form, update=update_acct, pfp=img_src)

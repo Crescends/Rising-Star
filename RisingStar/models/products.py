@@ -12,9 +12,6 @@ class Product(db.Model):
     requests = db.relationship('Merchandise', backref='product')
     album = db.Column(db.String(20), nullable=True)
 
-    def __add__(self, other):
-        return float(self.price[1:]) + float(other.price[1:])
-
     def __repr__(self):
         return f"{self.type}: {self.name} costs {self.cost}"
 
