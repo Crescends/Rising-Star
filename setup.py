@@ -14,7 +14,7 @@ def setup_database():
     add_dummy_posts()
 
 def add_dummy_posts():
-    user = User(username="John", email="fff@f.com", password=bcrypt.generate_password_hash("password").decode('utf-8'))
+    user = User.query.first() or User(username="John", email="fff@f.com", password=bcrypt.generate_password_hash("password").decode('utf-8'))
     print(user)
     a = Post(author=user, title="He is So Hot", content="I just cant stand it anymore last time I saw him I almost creamed my pants")
     db.session.add(a)
