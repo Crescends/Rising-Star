@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, flash, redirect, url_for, request, current_app
-from RisingStar.forms import RegistrationForm, LoginForm, ChangePasswordForm, UpdateAccountForm
+from RisingStar.forms import RegistrationForm, LoginForm, ChangePasswordForm, UpdateAccountForm, PostForm
 from RisingStar.ext import bcrypt
 from RisingStar.models import db, User, Post
 from flask_login import login_user, current_user, logout_user, login_required
@@ -26,7 +26,20 @@ def register():
 
 @forum.route('/forum')
 def main():
-    return render_template('forum.html', posts=Post.query.all())
+    p = Post.query.all()
+    return render_template('forum.html', posts=reversed(p))
+
+@forum.route('/forum/new-post', methods=['GET', 'POST'])
+@login_required
+def new_post():
+    form = PostForm()
+    if form.validate_on_submit():
+        p = Post(title=form.subject.data, content=form.content.data, author=current_user)
+        db.session.add(p)
+        db.session.commit()
+        flash("Your message had been created", "success")
+        return redirect(url_for("forum.main"))
+    return render_template('new_post.html', form=form)
 
 @forum.route('/login', methods=["GET", "POST"])
 def login():
