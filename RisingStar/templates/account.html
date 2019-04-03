@@ -1,5 +1,72 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-    <h1>{{ current_user.username }}</h1>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">
+                <img class="rounded-circle img-fluid" src="{{pfp}}">
+            </div>
+            <div class="col-md-8">
+                <h2 class="card-title">{{current_user.username}}</h2>
+                <p class="text-secondary">{{current_user.email}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<br><br>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title border-bottom mb-4">Change username</h4>
+            <form action="" method="post" enctype="multipart/form-data">
+                {{update.hidden_tag()}}
+                <fieldset class="form-group">
+                    {% from 'includes/_formhelpers.html' import render_field %}
+                    {{ render_field(update.username, class="form-control form-control-lg") }}
+                    {{ render_field(update.picture, class='form-control-file')}}
+                </fieldset>
+                <div class="form-field">
+                    {{ update.submit2(class="btn btn-warning") }}
+                </div>
+            </form>
+    </div>
+</div>
+<br><br>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title border-bottom mb-4">Change Password</h4>
+        <form action="" method="post" enctype="multipart/form-data">
+            {{ pssd.hidden_tag() }}
+            <fieldset class="form-group">
+                {% from 'includes/_formhelpers.html' import render_field %}
+                {{ render_field(pssd.old_password, class="form-control form-control-lg") }}
+                {{ render_field(pssd.new_password, class="form-control form-control-lg") }}
+                {{ render_field(pssd.confirm_password, class="form-control form-control-lg") }}
+            </fieldset>
+            <div class="form-field">
+                {{ pssd.submit(class="btn btn-warning") }}
+            </div>
+        </form>
+    </div>
+</div>
+<br><br>
+<div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Previous Orders</h4>
+        </div>
+        {% from 'includes/_carthelpers.html' import render_order %}
+        {%for order in current_user.orders[1:] %}
+            {% if not order.is_cart %}
+                <div class="card">
+                    <div class="card-body">
+                        <p>Ordered <span class="card-text">{{order.date_posted.strftime("%m/%d/%Y")}}</span></p>
+                        {{render_order(order, include_delete=False)}}
+                    </div>
+                </div>
+                <br><br>
+            {% endif %}
+        {% endfor %}   
+    </div>
 {% endblock %}

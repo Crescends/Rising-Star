@@ -1,4 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, url_for
+from RisingStar.models import Product
+
 home_bp = Blueprint('home', __name__, template_folder='templates', static_url_path='static')
 
 @home_bp.route('/template')
@@ -33,4 +35,8 @@ class Song:
 
 @home_bp.route('/tour')
 def tour():
-    return render_template('tour.html', title="Tour")
+    ticket_id = Product.query.filter_by(name="Normal Tour Admission Ticket").first().id
+    vip_id = Product.query.filter_by(name="VIP Tour Admission Ticket").first().id
+    ticket_link = f"/merchandise/checkout/?id={ticket_id}"
+    vip_link = f"/merchandise/checkout/?id={vip_id}"
+    return render_template('tour.html', title="Tour", vip_link=vip_link, ticket_link=ticket_link)
