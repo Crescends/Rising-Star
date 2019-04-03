@@ -2,6 +2,7 @@ from RisingStar import create_website
 from RisingStar.models import db, Product, Post, User
 from csv import DictReader
 import locale
+from RisingStar.ext import bcrypt
 
 locale.setlocale(locale.LC_ALL, '')
 
@@ -13,7 +14,7 @@ def setup_database():
     add_dummy_posts()
 
 def add_dummy_posts():
-    user = User.query.first()
+    user = User.query.first() or User(username="John", email="fff@f.com", password=bcrypt.generate_password_hash("password").decode('utf-8'))
     print(user)
     a = Post(author=user, title="He is So Hot", content="I just cant stand it anymore last time I saw him I almost creamed my pants")
     db.session.add(a)
@@ -34,7 +35,8 @@ def add_products():
             product = Product(album=ablum_type, type=category, cost=locale.currency(price), name=display_name, image_name=name+'.png')
             print(product)
             db.session.add(product)
+    ticket = Product(type="Tour Ticket", cost=locale.currency(100), name="Normal Tour Admission Ticket", image_name="ticket.png")
+    vip_ticket = Product(type="Tour Ticket", cost=locale.currency(180), name="VIP Tour Admission Ticket", image_name="ticketVIP.png")
+    db.session.add(ticket)
+    db.session.add(vip_ticket)
     db.session.commit()
-
-create_website()
-add_dummy_posts()
