@@ -20,7 +20,7 @@ def about():
 def music():
     covers = [
         Song("Smoke From The Ashes","Smoke", "\"Sometimes the hardest thing and the right thing are the same.\" -The Fray \nCampfire debuts with his first album."),
-        Song("Growth", "Growth","\"A goal withouut a plan is just a wish.\" - Jeff Rich. \nCampfire shares his story of becoming famous and the fears that arise from populatity and reveals it is a 2 edged sword"),
+        Song("Growth", "Growth","\"A goal withouut a plan is just a wish.\" - Jeff Rich. \nCampfire shares his story of becoming famous and the fears that arise from popularity and reveals it is a 2 edged sword"),
         Song("Abstract", "Abstract", "To dive into the knowledge that you have within you, you must first understand yourself. \nCampfire dives into his darkest fears and confronts them with the help of his friends")
     ]
     return render_template('music.html', covers=covers, title="Music")
@@ -40,3 +40,13 @@ def tour():
     ticket_link = f"/merchandise/checkout/?id={ticket_id}"
     vip_link = f"/merchandise/checkout/?id={vip_id}"
     return render_template('tour.html', title="Tour", vip_link=vip_link, ticket_link=ticket_link)
+
+
+@home_bp.route('/Charity')
+def about():
+    return render_template('charity.html', title="Charity")
+
+
+@home_bp.route('/Contact')
+def about():
+    return render_template('Contact.html', title="Contact Us")
