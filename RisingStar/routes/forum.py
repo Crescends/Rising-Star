@@ -41,6 +41,19 @@ def new_post():
         return redirect(url_for("forum.main"))
     return render_template('new_post.html', form=form)
 
+@forum.route('/forum/delete')
+@login_required
+def delete_post():
+    post_id = request.args.get("id")
+    post = Post.query.get_or_404(post_id)
+    if post.author == current_user:
+        db.session.delete(post)
+        db.session.commit()
+        flash("Deleted Post", "info")
+    else:
+        flash("You are not able to delete this post", "danger")
+    return redirect(url_for("forum.main"))
+
 @forum.route('/login', methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
