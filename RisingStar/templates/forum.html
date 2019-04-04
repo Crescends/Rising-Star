@@ -1,26 +1,44 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+<div class="card">
+<div class="card-header">
+        <div class="row">
+        <div class="col-md-10">
+            <h5 class="card-title">
+                Welcome to the Fan Forum hope you can find new connections and begin new sparks
+                with other fans.
+            </h5>
+        </div>
+        <div class="col-md-2">
+        <a href="/forum/new-post" class="btn btn-primary">New Post <i class="fa fa-plus" aria-hidden="true"></i></a>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="card-body">
+
     {% for post in posts %}
-        {% set image_url = "/static/images/profile_pics/"+ post.author.image_file %}
-        <div class="card">
-            <div class="card-header">
-                <div class="row no-gutters">
-                    <div class="col-md-1">
-                        <img src="{{image_url}}" class="img-thumbnail rounded-circle"> 
-                    </div>
-                    <div class="col-md-11">
-                        {{post.author.username}}
-                    </div>
+    {% set image_url = "/static/images/profile_pics/"+ post.author.image_file %}
+    <div class="card">
+        <div class="card-header">
+            <div class="row no-gutters">
+                <div class="col-md-1">
+                    <img src="{{image_url}}" class="img-thumbnail rounded-circle">
+                </div>
+                <div class="col-md-11">
+                    {{post.author.username}}
                 </div>
             </div>
-            <div class="card-body">
-                <h5 class="card-title">{{post.title}}</h5>
-                <p class="card-text">
-                    {{post.content}}
-                </p>
-            </div>
         </div>
-        <br>
+        <div class="card-body">
+            <h5 class="card-title">{{post.title}}</h5>
+            <p class="card-text">
+                {{post.content}}
+            </p>
+        </div>
+    </div>
+    <br>
     {% endfor %}
+</div>
 {% endblock %}
