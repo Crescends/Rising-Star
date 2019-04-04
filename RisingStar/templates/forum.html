@@ -34,7 +34,7 @@
             {% if post.author == current_user %}
               <div>
                 <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{'/forum/update-post?id=' + post.id|string }}">Update</a>
-                <a href="/forum/delete" class="btn btn-danger">Delete</a>
+                <a href="{{'/forum/delete?id=' + post.id|string}}" class="btn btn-danger btn-sm mt-1 mb-1">Delete</a>
             </div>
             {% endif %}
         </div>
