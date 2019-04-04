@@ -1,6 +1,38 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+   
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="NationModal" data-whatever="">Open modal for Nation</button>
+ 
+<div class="modal-fade" id="NationModal" tabindex="-1" role="dialog" aria-labelledby="NationLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalLabel">Join The #FireNation!</h5>
+        <p>Stay up to date on the latest with Campfire!</p>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <div class="icon"><i class="fas fa-fire"></i></div>
+        <form>
+          <div class="form-group">
+            <input type="email" class="form-control" id="email-name" name="" placeholder="Enter Your Email Address">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Subscribe</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 <img src="{{url_for('static', filename='images/WelcomeAshes.jpg')}}" class="img-fluid" alt="Welcome ">
 <br>
 <br>
