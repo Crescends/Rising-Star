@@ -41,6 +41,23 @@ def new_post():
         return redirect(url_for("forum.main"))
     return render_template('new_post.html', form=form)
 
+@forum.route("/forum/update-post", methods=['GET', 'POST'])
+@login_required
+def update_post():
+    post = Post.query.get_or_404(request.args.get("id"))
+    if post.author != current_user:
+        abort(403)
+    form = PostForm()
+    if form.validate_on_submit():
+        post.title = form.subject.data
+        post.content = form.content.data
+        db.session.commit()
+        flash('Your post has been updated!', 'success')
+        return redirect(url_for('post', post_id=post.id))
+    elif request.method == 'GET':
+        form.title.data = post.title
+        form.content.data = post.content
+
 @forum.route('/login', methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
@@ -56,6 +73,8 @@ def login():
         else:
             flash("The Username or password is incorrect", "danger")
     return render_template('login.html', title="Login", form=form)
+
+    return render_template('create_post.html', title='Update Post', form=form, legend='Update Post')
 
 @forum.route('/logout')
 def logout():

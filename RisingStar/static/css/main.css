@@ -25,6 +25,12 @@ footer{
     border: none;
 }
 
+.pfp-img{
+    height: 65px;
+    width: 65px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+}
 
 .album-cover{
     width: 100%;

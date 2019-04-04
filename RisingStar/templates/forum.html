@@ -24,12 +24,19 @@
         <div class="card-header">
             <div class="row no-gutters">
                 <div class="col-md-1">
-                    <img src="{{image_url}}" class="img-thumbnail rounded-circle">
+                    <img src="{{image_url}}" class="pfp-img rounded-circle">
                 </div>
                 <div class="col-md-11">
                     {{post.author.username}}
                 </div>
             </div>
+            <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+            {% if post.author == current_user %}
+              <div>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{'/forum/update-post?id=' + post.id|string }}">Update</a>
+                <a href="/forum/delete" class="btn btn-danger">Delete</a>
+            </div>
+            {% endif %}
         </div>
         <div class="card-body">
             <h5 class="card-title">{{post.title}}</h5>
