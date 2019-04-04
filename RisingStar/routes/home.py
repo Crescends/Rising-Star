@@ -43,10 +43,10 @@ def tour():
 
 
 @home_bp.route('/charity')
-def about():
+def charity():
     return render_template('charity.html', title="Charity")
 
 
 @home_bp.route('/contact')
-def about():
+def contact():
     return render_template('contact.html', title="Contact")
