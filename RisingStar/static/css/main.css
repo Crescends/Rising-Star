@@ -138,9 +138,9 @@ body
 }
 .icon
 {
-    color: orangered
+    color: orangered;
     font-size: 80px;
-    text-allign: center;
+    text-align: center;
 }
 .nation h1
 {
