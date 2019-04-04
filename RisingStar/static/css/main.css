@@ -88,12 +88,23 @@ body
 .overlay
 {
     position: absolute;
-    top: 0;
-    left: 0;
+    bottom: 50px;
+    right: 50px;
     width: 100%;
     height: 10vh;
     background: black;
     transition: .5s;
+    transform: scale(0);
+    transform-origin: bottom right;
+    border-radius: 50%;
+}
+.overlay.active
+{
+    border-radius: 0;
+    bottom: 0;
+    right: 0;
+    transform: scale(1);
+
 }
 .nation
 {
@@ -196,5 +207,5 @@ text-transform: uppercase;
 }
 .subscribe-form input[type="submit"]:hover
 {
-    stopped here
+    background: blue;
 }
