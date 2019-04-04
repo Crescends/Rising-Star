@@ -42,11 +42,6 @@ def tour():
     return render_template('tour.html', title="Tour", vip_link=vip_link, ticket_link=ticket_link)
 
 
-@home_bp.route('/charity')
-def charity():
-    return render_template('charity.html', title="Charity")
-
-
 @home_bp.route('/contact')
 def contact():
     return render_template('contact.html', title="Contact")
