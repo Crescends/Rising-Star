@@ -1,12 +1,17 @@
 {% extends 'layout.html' %}
+<style>
+.card-header{
+    color:white;
+}
+</style>
 
 {% block body %}
 <div class="card">
 <div class="card-header">
         <div class="row">
         <div class="col-md-10">
-            <h5 class="card-title">
-                Welcome to the Campfire Cirle! It's a forum for Campfire fans to post and connect with other fans and even Campfire himself! 
+            <h5 class="card-title" style="text-align: center">
+                <br> Welcome to the Campfire Cirle! <br> It's a forum for Campfire fans to post and connect with other fans and even Campfire himself! 
             </h5>
         </div>
         <div class="col-md-2">
@@ -20,7 +25,7 @@
     {% for post in posts %}
     {% set image_url = "/static/images/profile_pics/"+ post.author.image_file %}
     <div class="card">
-        <div class="card-header">
+        <div class="card-header bg-dark">
             <div class="row no-gutters">
                 <div class="col-md-1">
                     <img src="{{image_url}}" class="pfp-img rounded-circle">
