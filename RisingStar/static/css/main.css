@@ -50,11 +50,6 @@ footer{
     object-fit: cover;
 }
 
-.fas.fa-shopping-cart{
-    position: relative;
-    top: 0.5rem;
-}
-
 .bgimg {
     background-image: url('../images/music/coming.jpg');
     height: 100%;
