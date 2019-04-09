@@ -18,15 +18,21 @@
     .overlay-text{
         position: relative;
     }
+    .card-title{
+        color: white;
+    }
+    .card-text{
+        color: white;
+    }
 </style>
 {% endblock %}
 
 {% block body %}
-<div class="card-deck">
+<div class="card-deck " >
     {% for cover in covers %}
     <div class="card">
         <img src="{{ url_for('static', filename=cover.front) }}" class="card-img-top img-thumnail album-cover">
-        <div class="card-body">
+        <div class="card-body bg-dark">
             <h5 class="card-title">{{cover.name}}</h5>
             <p class="card-text"> {{cover.description}} </p>
         </div>
