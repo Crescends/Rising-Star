@@ -2,7 +2,7 @@
 {% block body %}
 <div class="card">
     {% if current_user.shopping_cart %}
-
+        
         {% from 'includes/_carthelpers.html' import render_order %}
         {{render_order(current_user.shopping_cart, include_delete=True)}}
         <h3 class="card-text card-body text-right">Subtotal: <span>{{current_user.shopping_cart.calc_total()}}</span></h3>
