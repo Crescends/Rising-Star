@@ -1,25 +1,19 @@
 {% extends 'layout.html' %}
-<style>
-.card-header{
-    color:white;
-}
-</style>
 
 {% block body %}
-<div class="card">
-<div class="card-header">
-        <div class="row">
-        <div class="col-md-10">
-            <h5 class="card-title" style="text-align: center">
-                <br> Welcome to the Campfire Cirle! <br> It's a forum for Campfire fans to post and connect with other fans and even Campfire himself! 
-            </h5>
-        </div>
-        <div class="col-md-2">
-        <a href="/forum/new-post" class="btn btn-primary">New Post <i class="fa fa-plus" aria-hidden="true"></i></a>
-        </div>
-        </div>
+<div class="card text-white text-center card-header">
+    <div class="row">
+    <div class="col-md-10">
+        <h5 class="card-title">
+            <br> Welcome to the Campfire Cirle! <br> It's a forum for Campfire fans to post and connect with other fans and even Campfire himself! 
+        </h5>
+    </div>
+    <div class="col-md-2">
+    <a href="/forum/new-post" class="btn btn-primary">New Post <i class="fa fa-plus" aria-hidden="true"></i></a>
+    </div>
     </div>
 </div>
+
 <div class="card-body">
 
     {% for post in posts %}
@@ -36,7 +30,7 @@
             </div>
             <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
             {% if post.author == current_user %}
-              <div>
+            <div>
                 <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{'/forum/update-post?id=' + post.id|string }}">Update</a>
                 <a href="{{'/forum/delete?id=' + post.id|string}}" class="btn btn-danger btn-sm mt-1 mb-1">Delete</a>
             </div>
