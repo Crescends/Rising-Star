@@ -1,6 +1,6 @@
-.fas{
+.fa{
     padding: 20px;
-    font-size: 30px;
+    font-size: 3rem;
     width: 70px;
     text-align: center;
     text-decoration: none;
@@ -13,8 +13,12 @@
 }
 
 .fa-shopping-cart{
-    position: relative;
-    top: 0.5rem;
+    padding: 0px;
+    font-size: 1.25rem;
+    width: 100%;
+    margin-top: 0.5rem;
+    text-align: center;
+    text-decoration: none;
 }
 
 .fa-twitter {

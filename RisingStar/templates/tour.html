@@ -2,15 +2,15 @@
 
 {% block style %}
 <style>
-  .tour-img{
-            width: 100%;
-        }
-    </style>
+  .tour-img {
+    width: 100%;
+  }
+</style>
 
 {% endblock %}
 
 {% block body %}
-<div class="card border-danger text-center">
+<div class="card bg-dark text-center">
   <div class="card-body">
     <h5 class="card-title">
       <p class="text-center">Below are tour dates, locations, and prices all avalible to purchase online!</p>
@@ -18,83 +18,82 @@
 
     <img src="{{url_for('static', filename='images/tour/Frontpic.PNG')}}" class="tour-img" alt="...">
 
-    <p class="card-text"> <br> Regular tickets and VIP tickets are being sold down below. <br> Regular tickets include entry
-      to the venue, an
-      autograph, and a meet and greet. <br> VIP tickets incudes front row tickets, backstage passes, an autograph, a
-      meet
-      and greet, and an invitation to an afterparty. </p>
+    <p class="card-text"> <br> Regular tickets and VIP tickets are being sold down below. <br> 
+      Regular tickets include entry to the venue, an autograph, and a meet and greet. <br> 
+      VIP tickets incudes front row tickets, backstage passes, an autograph, a meet and greet, and an invitation to an afterparty. </p>
 
-<table class="table table-bordered table-dark" style="width:100%">
-  <thead>
-    <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Location</th>
-      <th scope="col">Reg Tickets</th>
-      <th scope="col">VIP</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">April 30th</td>
-      <td>Vulcan - Austin, TX</td>
-      <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
-      <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
-    </tr>
-    <tr>
-      <th scope="row">May 3rd</td>
-      <td>Pier 94 - New York, NY</td>
-      <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
-      <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
-    </tr>
-    <tr>
-      <th scope="row">June 31st </td>
-      <td>Hard Day Of The Dead - Pomona, CA</td>
-      <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a> </td>
-      <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
-    </tr>
-    <tr>
-      <th scope="row">July 8th</td>
-      <td>Global Dance Festival - Phoenix, AZ</td>
-      <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
-      <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
-    </tr>
-    <tr>
-      <th scope="row">August 5th</td>
-      <td>Foundation Nightclub - Seattle, WA</td>
-      <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
-      <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
-    </tr>
-    <tr>
-      <th scope="row">September 19th</td>
-      <td>Core Crown Point - Crown Point, IN</td>
-      <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
-      <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
-    </tr>
-    <tr>
-      <th scope="row">October 28th</td>
-      <td>Bluebird Theatre - Denver, CO</td>
-      <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
-      <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
-    </tr>
-    <tr>
-      <th scope="row">November 11</td>
-      <td>Sky Lounge - Salt Lace City, UT</td>
-      <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
-      <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
-    </tr>
-    <tr>
-      <th scope="row">December 9th</td>
-      <td>Amphitheater - Tampa, FL</td>
-      <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
-      <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
-    </tr>
-    <tr>
-      <th scope="row">January 25th, 2020</td>
-      <td>Broadberry - Richmond, VA</td>
-      <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
-      <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
+    <table class="table table-bordered table-dark" style="width:100%">
+      <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Location</th>
+          <th scope="col">Reg Tickets</th>
+          <th scope="col">VIP</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">April 30th</td>
+          <td>Vulcan - Austin, TX</td>
+          <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
+          <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
+        </tr>
+        <tr>
+          <th scope="row">May 3rd</td>
+          <td>Pier 94 - New York, NY</td>
+          <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
+          <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
+        </tr>
+        <tr>
+          <th scope="row">June 31st </td>
+          <td>Hard Day Of The Dead - Pomona, CA</td>
+          <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a> </td>
+          <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
+        </tr>
+        <tr>
+          <th scope="row">July 8th</td>
+          <td>Global Dance Festival - Phoenix, AZ</td>
+          <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
+          <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
+        </tr>
+        <tr>
+          <th scope="row">August 5th</td>
+          <td>Foundation Nightclub - Seattle, WA</td>
+          <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
+          <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
+        </tr>
+        <tr>
+          <th scope="row">September 19th</td>
+          <td>Core Crown Point - Crown Point, IN</td>
+          <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
+          <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
+        </tr>
+        <tr>
+          <th scope="row">October 28th</td>
+          <td>Bluebird Theatre - Denver, CO</td>
+          <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
+          <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
+        </tr>
+        <tr>
+          <th scope="row">November 11</td>
+          <td>Sky Lounge - Salt Lace City, UT</td>
+          <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
+          <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
+        </tr>
+        <tr>
+          <th scope="row">December 9th</td>
+          <td>Amphitheater - Tampa, FL</td>
+          <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
+          <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
+        </tr>
+        <tr>
+          <th scope="row">January 25th, 2020</td>
+          <td>Broadberry - Richmond, VA</td>
+          <td><a href="{{ticket_link}}" class="btn btn-light">Reg $100</a></td>
+          <td><a href="{{vip_link}}" class="btn btn-warning"> VIP $180</a> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 {% endblock %}

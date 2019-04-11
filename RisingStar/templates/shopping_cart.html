@@ -2,12 +2,7 @@
 {% block body %}
 <div class="card">
     {% if current_user.shopping_cart %}
-
-    <div class="card-header">
-        <a class="btn btn-primary" href="/merchandise/purchase-cart">Purchase</a>
-        <small>Since this site isnt funded by anything the purchasing process and mailing process will not be
-            included</small>
-    </div>
+        
         {% from 'includes/_carthelpers.html' import render_order %}
         {{render_order(current_user.shopping_cart, include_delete=True)}}
         <h3 class="card-text card-body text-right">Subtotal: <span>{{current_user.shopping_cart.calc_total()}}</span></h3>
@@ -19,7 +14,7 @@
     {% else %}
     <div class="card">
         <div class="card-body">
-            <h5 class="card title">Empty</h5>
+            <h5 class="card title">Wow Such Empty</h5>
             <p class="card-text">
                 You can go to the  
                 <a href="{{url_for('merch.merchandise')}}" class="card-link">merch store</a> to add more to your
