@@ -1,13 +1,26 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-<div class="jumbotron bg-light">
-  <h1 class="display-4">Campfire Merchandise</h1>
-  <p class="lead">Support Campfire by buying the latest and hottest of his merchandise! Currently 10% of all profits are
-    going towards the Enviroment Awareness project/charity! Support us towards our goal!</p>
+<style>
+.display-1{
+  color: red;
+}
+.lead{
+  color: white;
+}
+.card-title{
+  color: white;
+}
+.card-text{
+  color:white;
+}
+</style>
+<div class="jumbotron bg-dark">
+    <h1 class="display-1" style="text-align:center" >Campfire Merchandise</h1>
+  <p class="lead" style="text-align:center">Support CampFire by buying the latest and hottest of his merchandise! <br> We have affording merch ranging from accessories to daily clothing!</p>
 </div>
 
-<div class="card">
+<div class="card bg-dark">
   <div class="card-header">
     <div class="row">
       
@@ -39,7 +52,7 @@
   {% for item in merch %}
   {% set image_filepath = "images/merch/" + item.image_name %}
   {% set link = "/merchandise/checkout?id=" + item.id|string %}
-  <div class="card">
+  <div class="card bg-dark">
     <img class="merch-img card-img-top img-fluid" src="{{ url_for('static', filename=image_filepath) }}"
       alt="{{item.name}}">
     <div class="card-body">
