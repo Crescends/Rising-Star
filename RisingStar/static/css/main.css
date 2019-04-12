@@ -1,7 +1,9 @@
 .checkout-img{
     border-right: 2px solid red;
 }
-
+.bg-dark{
+    background-color: #000000!important;
+}
 #background {
     /* The image used */
     background-image: url('../images/concert.jpg');
@@ -42,12 +44,6 @@ footer{
     width: 65px;
     margin-right: 20px;
     margin-bottom: 16px;
-}
-
-.album-cover{
-    width: 100%;
-    height: 19vw;
-    object-fit: cover;
 }
 
 .bgimg {

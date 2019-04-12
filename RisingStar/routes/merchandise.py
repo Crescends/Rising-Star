@@ -10,7 +10,7 @@ def merchandise():
     args = request.args
     category_field = "All Categories"
     album_field = "All types"
-    chosen_products = Product.query
+    chosen_products = Product.query.filter(Product.type != "Tour Ticket")
 
     t = args.get("type", None, type=str)
     if t:
