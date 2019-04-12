@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-<div class="card text-white text-center card-header">
+<div class="card bg-dark text-white text-center">
     <div class="row">
     <div class="col-md-10">
         <h5 class="card-title">
@@ -19,7 +19,7 @@
     {% for post in posts %}
     {% set image_url = "/static/images/profile_pics/"+ post.author.image_file %}
     <div class="card">
-        <div class="card-header bg-dark">
+        <div class="card-header bg-dark text-white">
             <div class="row no-gutters">
                 <div class="col-md-1">
                     <img src="{{image_url}}" class="pfp-img rounded-circle">
@@ -28,7 +28,7 @@
                     {{post.author.username}}
                 </div>
             </div>
-            <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+            <small class="text-muted"> Posted on {{ post.date_posted.strftime('%Y-%m-%d') }}</small>
             {% if post.author == current_user %}
             <div>
                 <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{'/forum/update-post?id=' + post.id|string }}">Update</a>

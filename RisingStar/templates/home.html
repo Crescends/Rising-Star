@@ -63,11 +63,15 @@
   }
 </style>
 {% endblock style %}
+{% block scripts %}
+<script>
+  $(window).on('load',function(){
+    $('#myModal').modal('show');
+});
+</script>
+{% endblock scripts %}
 {% block body %}
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open
-  modal for Fire</button>
-<div class="modal fade fire-modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-  aria-hidden="true">
+<div class="modal fade fire-modal" id="myModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content text-center text-danger bg-dark" style="font-size: 45px">
       <div class="modal-header">
@@ -86,7 +90,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Subscribe</button>
+        <a class="btn btn-primary">Subscribe</a>
       </div>
     </div>
 
