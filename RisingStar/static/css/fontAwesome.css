@@ -1,10 +1,10 @@
 .fa{
     padding: 20px;
+    padding-right: 75px;
     font-size: 3rem;
     width: 70px;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
-    margin: 5px 2px;
     border-radius: 50%;
 }
 

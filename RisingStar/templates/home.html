@@ -65,19 +65,22 @@
 {% endblock style %}
 {% block scripts %}
 <script>
-  $(window).on('load',function(){
-    $('#myModal').modal('show');
+$(window).on('load',function(){
+  $('#myModal').modal('show');
+});
+$("#modalButton").click(function(){
+  $('#myModal').modal('hide');
 });
 </script>
 {% endblock scripts %}
 {% block body %}
-<div class="modal fade fire-modal" id="myModal" aria-hidden="true">
+<div class="modal fade fire-modal text-danger" id="myModal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content text-center text-danger bg-dark" style="font-size: 45px">
       <div class="modal-header">
         <h5 class="modal-title" id="ModalLabel">Join The #FireNation!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span class="text-danger">&times;</span>
         </button>
       </div>
       <div class="modal-body text-center text-danger" style="font-size: 20px">
@@ -90,7 +93,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <a class="btn btn-primary">Subscribe</a>
+        <a id="modalButton" class="btn">Subscribe</a>
       </div>
     </div>
 
@@ -114,7 +117,7 @@
       <p class="card-text" style="text-align: center">Upcoming appearance on the Ellen Show </p>
     </div>
   </div>
-  <div class="card bg-dark">
+  <div class="card bg-dark text-white">
     <div class="card-body">
       <h5 class="card-title text-danger" style="text-align: center">Whats Hot?</h5>
       <p class="card-text" style="text-align: center">I am.</p>
