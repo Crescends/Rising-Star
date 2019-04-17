@@ -1,9 +1,7 @@
 .fa{
     padding: 20px;
-    padding-right: 75px;
-    font-size: 3rem;
-    width: 70px;
-    text-align: left;
+    font-size: 3em;
+    text-align: center;
     text-decoration: none;
     border-radius: 50%;
 }

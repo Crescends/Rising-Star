@@ -53,7 +53,7 @@
   {% set image_filepath = "images/merch/" + item.image_name %}
   {% set link = "/merchandise/checkout?id=" + item.id|string %}
   <div class="card bg-dark">
-    <img class="merch-img card-img-top img-fluid" src="{{ url_for('static', filename=image_filepath) }}"
+    <img class="card-img-top img-fluid" src="{{ url_for('static', filename=image_filepath) }}"
       alt="{{item.name}}">
     <div class="card-body">
       <h5 class="card-title">{{item.name}}</h5>
