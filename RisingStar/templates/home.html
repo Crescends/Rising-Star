@@ -11,6 +11,7 @@
     box-shadow: 0 10px 15px rgba(0, 0, 0.5);
     padding: 40px 60px 60px;
   }
+
   .modal-fade .close {
     color: white;
     cursor: pointer;
@@ -21,6 +22,7 @@
     font-size: 20px;
     border: 4px solid white;
   }
+
   .modal-title h5 {
     color: red;
     font-weight: 300;
@@ -45,7 +47,7 @@
     padding-right: 200px;
     font-size: 24px;
     background: rgba(255, 255, 255, .1);
-    color: white; 
+    color: white;
     font-weight: 300;
   }
 
@@ -65,12 +67,12 @@
 {% endblock style %}
 {% block scripts %}
 <script>
-$(window).on('load',function(){
-  $('#myModal').modal('show');
-});
-$("#modalButton").click(function(){
-  $('#myModal').modal('hide');
-});
+  $(window).on('load', function () {
+    $('#myModal').modal('show');
+  });
+  $("#modalButton").click(function () {
+    $('#myModal').modal('hide');
+  });
 </script>
 {% endblock scripts %}
 {% block body %}
@@ -85,7 +87,7 @@ $("#modalButton").click(function(){
       </div>
       <div class="modal-body text-center text-danger" style="font-size: 20px">
         <div><i class="fas fa-fire"></i></div>
-        <p>Stay up to date on the latest with Campfire!</p> 
+        <p>Stay up to date on the latest with Campfire!</p>
         <form>
           <div class="form-group">
             <input type="email" class="form-control" id="email-name" name="" placeholder="Enter Your Email Address">
@@ -104,35 +106,49 @@ $("#modalButton").click(function(){
 <img src="{{url_for('static', filename='images/WelcomeAshes.jpg')}}" class="img-fluid" alt="Welcome ">
 <br>
 <br>
-<div class="card-deck">
-  <div class="card text-center text-white bg-dark">
-    <div class="card-body">
-      <h5 class="card-title text-danger">News</h5>
-      <p class="card-text" style="text-align: center">12/18 Grammy Nominee </p>
-      <p class="card-text" style="text-align: center">New Album Releasing SoonB</p>
-      <p class="card-text" style="text-align: center">Enviroment Awareness Project</p>
-      <p class="card-text" style="text-align: center">2019 Flame Merchandise Now Available</p>
-      <p class="card-text" style="text-align: center">Announcing Campfire Upcoming Tour</p>
-      <p class="card-text" style="text-align: center">Music Video Release Date: April 16, 2019</p>
-      <p class="card-text" style="text-align: center">Upcoming appearance on the Ellen Show </p>
+<div class="row">
+  <div class="col-md-4">
+    <div style="height: 350px;" class="h-200 card text-center text-white bg-dark">
+      <div class="card-body">
+        <h5 class="card-title text-danger">News</h5>
+        <p class="card-text" style="text-align: center">12/18 Grammy Nominee </p>
+        <p class="card-text" style="text-align: center">New Album Releasing SoonB</p>
+        <p class="card-text" style="text-align: center">Enviroment Awareness Project</p>
+        <p class="card-text" style="text-align: center">2019 Flame Merchandise Now Available</p>
+        <p class="card-text" style="text-align: center">Announcing Campfire Upcoming Tour</p>
+        <p class="card-text" style="text-align: center">Music Video Release Date: April 16, 2019</p>
+        <p class="card-text" style="text-align: center">Upcoming appearance on the Ellen Show </p>
+      </div>
     </div>
   </div>
-  <div class="card bg-dark text-white">
-    <div class="card-body">
-      <h5 class="card-title text-danger" style="text-align: center">Whats Hot?</h5>
-      <p class="card-text" style="text-align: center">I am.</p>
+  <div class="col-md-4">
+    <div class="card bg-dark text-white">
+      <div class="card-body">
+        <h5 class="card-title text-danger" style="text-align: center">Whats Hot?</h5>
+        <p class="card-text" style="text-align: center">I am.</p>
+      </div>
+    </div>
+    <br>
+    <hr style="width: 100%">
+    <br>
+    <div class="card bg-dark text-white">
+      <div class="card-body">
+        <h5 class="card-title text-danger" style="text-align: center">Whats Hot?</h5>
+        <p class="card-text" style="text-align: center">I am.</p>
+      </div>
     </div>
   </div>
-  <div class="card bg-dark">
-    <div class="card-body">
-      <h5 class="card-title text-danger" style="text-align: center" >Social Media</h5>
-          <a href="https://twitter.com/Camp0_oFire" class="fa fa-twitter"></a>
-          <a href="https://www.youtube.com/channel/UCUM4pD0sXrvc2ejtXavXnyA" class="fa fa-youtube"></a>
-          <a href="#" class="fa fa-instagram"></a>
-          <br>
-          <a href="#" class="fa fa-snapchat-ghost"></a>
-          <a href="https://open.spotify.com/playlist/1ExXZYFn0TU0CCRl5viVR6" class="fa fa-spotify"></a>
-          <a href="#" class="fa fa-soundcloud"></a>   
+  <div class="col-md-4">
+    <div style="height: 350px;" class="mh-100 card bg-dark">
+      <div class="card-body">
+        <h5 class="card-title text-danger" style="text-align: center">Social Media</h5>
+        <a href="https://twitter.com/Camp0_oFire" class="fa fa-twitter"></a>
+        <a href="https://www.youtube.com/channel/UCUM4pD0sXrvc2ejtXavXnyA" class="fa fa-youtube"></a>
+        <a href="https://www.instagram.com/_campp_fire_/" class="fa fa-instagram"></a>
+        <br>
+        <a href="https://open.spotify.com/playlist/1ExXZYFn0TU0CCRl5viVR6" class="fa fa-spotify"></a>
+        <a href="https://soundcloud.com/camp-fire-347741457" class="fa fa-soundcloud"></a>
+      </div>
     </div>
   </div>
 </div>
