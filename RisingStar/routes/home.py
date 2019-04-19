@@ -1,6 +1,6 @@
-from flask import Blueprint, render_template, url_for
+from flask import Blueprint, render_template, url_for, flash
 from RisingStar.models import Product
-
+from RisingStar.forms import ContactForm
 home_bp = Blueprint('home', __name__, template_folder='templates', static_url_path='static')
 
 @home_bp.route('/template')
@@ -42,6 +42,9 @@ def tour():
     return render_template('tour.html', title="Tour", vip_link=vip_link, ticket_link=ticket_link)
 
 
-@home_bp.route('/contact')
+@home_bp.route('/contact', methods=["GET", "POST"])
 def contact():
-    return render_template('contact.html', title="Contact")
+    form = ContactForm()
+    if form.is_submitted():
+        flash("Thank you for your feedback", "info")
+    return render_template('contact.html', title="Contact", form=form)

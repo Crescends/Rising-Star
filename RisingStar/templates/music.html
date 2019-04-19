@@ -1,10 +1,19 @@
 {% extends 'layout.html' %}
 {% block scripts %}
+<script src="//code.jquery.com/jquery.min.js"></script>
 <script src="{{url_for('static', filename='js/countdown.js')}}"></script>
-
+<script src="{{url_for('static', filename='js/player.js')}}"></script>
+<script>
+    $(document).ready(function () {
+        $('.mediPlayer').mediaPlayer();
+    });
+</script>
 {% endblock %}
 
 {% block style %}
+<link rel="stylesheet" href="/static/css/progres-bar.css">
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
 <style>
     .bg-img {
         background-image: url('../static/images/music/coming.jpg');
@@ -28,11 +37,14 @@
 {% endblock %}
 
 {% block body %}
-<div class="card-deck " >
+<div class="card-deck">
     {% for cover in covers %}
     <div class="card">
         <img src="{{ url_for('static', filename=cover.front) }}" class="card-img-top img-thumnail album-cover">
         <div class="card-body bg-dark">
+            <div class="mediPlayer">
+                <audio class="listen" preload="none" data-size="250" src="/static/sounds/piano.mp3"></audio>
+            </div>
             <h5 class="card-title">{{cover.name}}</h5>
             <p class="card-text"> {{cover.description}} </p>
         </div>
