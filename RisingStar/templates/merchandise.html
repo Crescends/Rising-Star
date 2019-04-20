@@ -1,26 +1,19 @@
 {% extends 'layout.html' %}
 
-{% block body %}
+{% block style %}
 <style>
-.display-1{
-  color: red;
-}
-.lead{
-  color: white;
-}
-.card-title{
-  color: white;
-}
-.card-text{
-  color:white;
-}
+  .display-4{
+    color: red;
+  }
 </style>
+{% endblock %}
+{% block body %}
 <div class="jumbotron bg-dark">
-    <h1 class="display-1" style="text-align:center" >Campfire Merchandise</h1>
-  <p class="lead" style="text-align:center">Support CampFire by buying the latest and hottest of his merchandise! <br> We have affordable merch ranging from accessories to daily clothing!</p>
+    <h4 class="text-center display-4 text-red" >Campfire Merchandise</h4>
+  <p class="lead text-white">Support CampFire by buying the latest and hottest of his merchandise! <br> We have affordable merch ranging from accessories to daily clothing!</p>
 </div>
 
-<div class="card bg-dark">
+<div class="text-white card bg-dark">
   <div class="card-header">
     <div class="row">
       
@@ -48,7 +41,7 @@
     </div>
   </div>
 </div>
-<div class="card-columns">
+<div class="text-white card-columns">
   {% for item in merch %}
   {% set image_filepath = "images/merch/" + item.image_name %}
   {% set link = "/merchandise/checkout?id=" + item.id|string %}
