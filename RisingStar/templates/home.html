@@ -66,6 +66,7 @@
 </style>
 {% endblock style %}
 {% block scripts %}
+<script src="{{url_for('static', filename='js/countdown.js')}}"></script>
 <script>
   $(window).on('load', function () {
     $('#myModal').modal('show');
@@ -133,8 +134,9 @@
     <br>
     <div class="card bg-dark text-white">
       <div class="card-body">
-        <h5 class="card-title text-danger" style="text-align: center">Whats Hot?</h5>
-        <p class="card-text" style="text-align: center">I am.</p>
+        <h5 class="card-title text-danger" style="text-align: center">Coming Soon</h5>
+        <p class="card-text" style="text-align: center">New album <b>name</b> will be released in 20 days</p>
+        <p class="card-text" style="text-align: center">New album will be released in <span id="countdown-timer"></span></p>
       </div>
     </div>
   </div>
@@ -142,12 +144,12 @@
     <div style="height: 350px;" class="mh-100 card bg-dark">
       <div class="card-body">
         <h5 class="card-title text-danger" style="text-align: center">Social Media</h5>
-        <a href="https://twitter.com/Camp0_oFire" class="fa fa-twitter"></a>
-        <a href="https://www.youtube.com/channel/UCUM4pD0sXrvc2ejtXavXnyA" class="fa fa-youtube"></a>
-        <a href="https://www.instagram.com/_campp_fire_/" class="fa fa-instagram"></a>
+        <a href="https://twitter.com/Camp0_oFire" ><i class="fa fa-twitter"></i></a>
+        <a href="https://www.youtube.com/channel/UCUM4pD0sXrvc2ejtXavXnyA" ><i class="fa fa-youtube"></i></a>
+        <a href="https://www.instagram.com/_campp_fire_/" ><i class="fa fa-instagram"></i></a>
         <br>
-        <a href="https://open.spotify.com/playlist/1ExXZYFn0TU0CCRl5viVR6" class="fa fa-spotify"></a>
-        <a href="https://soundcloud.com/camp-fire-347741457" class="fa fa-soundcloud"></a>
+        <a href="https://open.spotify.com/playlist/1ExXZYFn0TU0CCRl5viVR6" ><i class="fa fa-spotify"></i></a>
+        <a href="https://soundcloud.com/camp-fire-347741457" ><i class="fa fa-soundcloud"></i></a>
       </div>
     </div>
   </div>
