@@ -6,6 +6,9 @@ from RisingStar.models import User
 from RisingStar.ext import bcrypt
 from flask_login import current_user
 
+class ContactForm(FlaskForm):
+    submit = SubmitField("Send")
+
 class RegistrationForm(FlaskForm):
     username = StringField("Username", validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField("Email", validators=[DataRequired(), Email()])

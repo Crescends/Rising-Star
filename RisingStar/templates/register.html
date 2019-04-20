@@ -6,7 +6,7 @@
         <form action="" method="post" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4 card-text">Join Today</legend>
+                <legend class="border-bottom mb-4 card-text">Join Today!</legend>
                 {% from 'includes/_formhelpers.html' import render_field %}
                 {{ render_field(form.username, class="form-control form-control-lg")}}
                 {{ render_field(form.email, class="form-control form-control-lg") }}

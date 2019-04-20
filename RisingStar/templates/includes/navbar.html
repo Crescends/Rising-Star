@@ -27,13 +27,16 @@
                 <li class="nav-item">
                     <a class="nav-link text-light" href="/tour">Tour</a>
                 </li>
+                <li class="nav-item">
+                        <a class="nav-link text-light" href="/contact">Contact Us</a>
+                </li>
             </ul>
             <ul class="navbar-nav">
                 {% if current_user.is_authenticated %}
                     {% if current_user.shopping_cart %}
-                        <a href="/merchandise/shopping-cart" class="fas fa-shopping-cart nav-item"><span class="badge badge-pill badge-primary">{{current_user.shopping_cart|length}}</span></a>
+                        <a href="/merchandise/shopping-cart"> <i class="fa fa-shopping-cart nav-item"><span class="badge badge-pill badge-primary">{{current_user.shopping_cart|length}}</span></i></a>
                     {% else %}
-                        <a href="/merchandise/shopping-cart" class="fas fa-shopping-cart nav-item"></a>
+                        <a href="/merchandise/shopping-cart"> <i class="fa fa-shopping-cart nav-item"> </i></a>
                     {% endif %}
                     <a href="/account" class="nav-item nav-link text-light">Account</a>
                     <a href="/logout" class="nav-item nav-link text-light">Logout</a>
@@ -41,6 +44,7 @@
                     <a href="/login" class="nav-item nav-link text-light">Login</a>
                     <a href="/register" class="nav-item nav-link text-light">Register</a>
                 {% endif %}
+                <a href="http://texas-student-association.herokuapp.com/" class="nav-item btn btn-primary nav-link text-light">TSA</a>
             </ul>
         </div>
     </div>

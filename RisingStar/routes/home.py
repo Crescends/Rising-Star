@@ -1,6 +1,6 @@
-from flask import Blueprint, render_template, url_for
+from flask import Blueprint, render_template, url_for, flash
 from RisingStar.models import Product
-
+from RisingStar.forms import ContactForm
 home_bp = Blueprint('home', __name__, template_folder='templates', static_url_path='static')
 
 @home_bp.route('/template')
@@ -20,8 +20,8 @@ def about():
 def music():
     covers = [
         Song("Smoke From The Ashes","Smoke", "\"Sometimes the hardest thing and the right thing are the same.\" -The Fray \nCampfire debuts with his first album."),
-        Song("Growth", "Growth","\"A goal withouut a plan is just a wish.\" - Jeff Rich. \nCampfire shares his story of becoming famous and the fears that arise from populatity and reveals it is a 2 edged sword"),
-        Song("Abstract", "Abstract", "To dive into the knowledge that you have within you, you must first understand yourself. \nCampfire dives into his darkest fears and confronts them with the help of his friends")
+        Song("Growth", "Growth","\"A goal without a plan is just a wish.\" - Jeff Rich. \nCampfire shares his story of becoming famous and the fears that arise from popularity and reveals it is a 2 edged sword."),
+        Song("Abstract", "Abstract", "To dive into the knowledge that you have within you, you must first understand yourself. \nCampfire dives into his darkest fears and confronts them with the help of his friends.")
     ]
     return render_template('music.html', covers=covers, title="Music")
 
@@ -29,8 +29,10 @@ def music():
 class Song:
     def __init__(self, name, file_name, description):
         self.name = name
+        self.filename = file_name
         self.front = f"images/music/{file_name}Front.png"
         self.back = f"images/music/{file_name}Back.png"
+        self.music = f"sounds/{file_name}.mp3"
         self.description = description
 
 @home_bp.route('/tour')
@@ -40,3 +42,11 @@ def tour():
     ticket_link = f"/merchandise/checkout/?id={ticket_id}"
     vip_link = f"/merchandise/checkout/?id={vip_id}"
     return render_template('tour.html', title="Tour", vip_link=vip_link, ticket_link=ticket_link)
+
+
+@home_bp.route('/contact', methods=["GET", "POST"])
+def contact():
+    form = ContactForm()
+    if form.is_submitted():
+        flash("Thank you for your feedback", "info")
+    return render_template('contact.html', title="Contact", form=form)
