@@ -1,11 +1,44 @@
 {% extends 'layout.html' %}
 {% block scripts %}
+<script src="//code.jquery.com/jquery.min.js"></script>
 <script src="{{url_for('static', filename='js/countdown.js')}}"></script>
-
+<script src="{{url_for('static', filename='js/player.js')}}"></script>
 {% endblock %}
 
 {% block style %}
+
 <style>
+    .pButton {
+        float: left;
+    }
+
+    .timeline {
+        width: 90%;
+        height: 2px;
+        margin-top: 20px;
+        margin-left: 10px;
+        float: left;
+        -webkit-border-radius: 15px;
+        border-radius: 15px;
+        background: rgba(255, 153, 51, 0.3);
+    }
+
+    .pButton {
+        color: white;
+        margin-top: 12px;
+        cursor: pointer;
+    }
+
+    .playhead {
+        width: 8px;
+        height: 8px;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        margin-top: -3px;
+        background: white;
+        cursor: pointer;
+    }
+
     .bg-img {
         background-image: url('../static/images/music/coming.jpg');
         height: 100%;
@@ -15,26 +48,37 @@
         font-size: 25px;
     }
 
-    .overlay-text{
+    .overlay-text {
         position: relative;
     }
-    .card-title{
+
+    .card-title {
         color: white;
     }
-    .card-text{
+
+    .card-text {
         color: white;
     }
 </style>
 {% endblock %}
 
 {% block body %}
-<div class="card-deck " >
+<div class="card-deck">
     {% for cover in covers %}
     <div class="card">
         <img src="{{ url_for('static', filename=cover.front) }}" class="card-img-top img-thumnail album-cover">
         <div class="card-body bg-dark">
             <h5 class="card-title">{{cover.name}}</h5>
-            <p class="card-text"> {{cover.description}} </p>
+            <p class="{{cover.filename}} card-text"> {{cover.description}} </p>
+            <audio class="{{cover.filename}} music" preload="true" src="{{ url_for('static', filename=cover.music) }}">
+            </audio>
+            <div class="audioplayer">
+                <i class="{{cover.filename}} pButton fas fa-play"></i>
+                <div class="{{cover.filename}} timeline">
+                    <div class="{{cover.filename}} playhead"></div>
+                </div>
+            </div>
+
         </div>
     </div>
     {% endfor %}
@@ -43,35 +87,12 @@
 <div class="card border-light text-light d-block">
     <img class="card-img" src="{{url_for('static', filename='images/music/coming.jpg')}}" alt="">
     <div class="card-img-overlay">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br> 
-        <br>
-        <br>
-        <br>
-            <div class="text-center overlay-text">
-                <h1>COMING SOON</h1>
-                <hr>
-                <p id=countdown-timer></p>
-            </div>
-            <div class="text-left">
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br> 
-                <br>
-                <br>
-                <br>
-                <p>New Album</p>
-            </div>
-        </div>
+    <div class="text-center overlay-text">
+        <h1>COMING SOON</h1>
+        <hr>
+        <p id=countdown-timer></p>
     </div>
+    </div>
+</div>
 </div>
 {% endblock body %}
