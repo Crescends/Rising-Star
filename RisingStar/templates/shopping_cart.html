@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 {% block body %}
-<div class="card">
+<div class="card bg-dark text-white">
     {% if current_user.shopping_cart %}
         {% from 'includes/_carthelpers.html' import render_order %}
         {{render_order(current_user.shopping_cart, include_delete=True)}}
@@ -23,24 +23,5 @@
     </div>
     {% endif %}
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br>
 {% endblock %}

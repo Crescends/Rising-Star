@@ -1,14 +1,14 @@
 {% macro render_order(order, include_delete) %}
-<ul class="list-group list-group-flush">
+<ul class="list-group bg-dark text-white list-group-flush">
     {% for item in order %}
         {% set deleteCallback = "/merchandise/delete?id=" + item.id|string %}
         {% set image_filepath = "images/merch/" + item.product.image_name %}
-        <li class="list-group-item">
+        <li class="list-group-item list-group-item-dark">
             <div class="row no-gutters">
-                <div class="col-md-2">
+                <div class="col-md-2 ">
                     <img class="card-img img-fluid" src="{{url_for('static', filename=image_filepath)}}" alt="{{item.name}}">
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-10 ">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-11 card-text">
