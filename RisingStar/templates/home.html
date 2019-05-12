@@ -106,9 +106,9 @@
 <img src="{{url_for('static', filename='images/WelcomeAshes.jpg')}}" class="img-fluid" alt="Welcome ">
 <br>
 <br>
-<div class="row">
-  <div class="col-md-4">
-    <div style="height: 350px;" class="h-200 card text-center text-white bg-dark">
+<div class="card-deck row">
+  <div class="col">
+    <div class="h-200 card text-center text-white bg-dark">
       <div class="card-body">
         <h5 class="card-title text-danger">News</h5>
         <p class="card-text">12/18 Grammy Nominee </p>
@@ -121,16 +121,8 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4">
-    <div class="card bg-dark text-white">
-      <div class="card-body">
-        <h5 class="card-title text-danger" style="text-align: center">Whats Hot?</h5>
-        <p class="card-text" style="text-align: center">I am.</p>
-      </div>
-    </div>
-    <br>
-    <hr style="width: 100%">
-    <br>
+  <div class="col">
+
     <div class="card bg-dark text-white">
       <div class="card-body">
         <h5 class="card-title text-danger" style="text-align: center">Coming Soon</h5>
@@ -139,34 +131,40 @@
         </p>
       </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div style="height: 350px;" class="mh-100 card bg-dark">
+    <br>
+    <hr style="width: 100%">
+    <br>
+
+    <div class="card bg-dark text-white">
       <div class="card-body">
         <h5 class="card-title text-danger" style="text-align: center">Social Media</h5>
-        <a href="https://twitter.com/Camp0_oFire"><i class="fa fa-twitter" style="text-align: left"></i></a> &nbsp;
-        <a href="https://www.youtube.com/channel/UCZujdNHeQD0zzSFf6HfJ3LA"><i class="fa fa-youtube"
-            style="text-align: justify"></i></a>
-        <br>
-        <a href="https://www.instagram.com/_campp_fire_/"><i class="fa fa-instagram" style="text-align: left"></i></a>
-        <a href="https://open.spotify.com/playlist/1ExXZYFn0TU0CCRl5viVR6"><i class="fa fa-spotify"
-            style="text-align: justify"></i></a>
-        <a href="https://soundcloud.com/camp-fire-347741457"><i class="fa fa-soundcloud" style="text-align:center"></i>
+        <p class="card-text" style="text-align: center">See the flames spread across my social media</p>
+        <a href="https://twitter.com/Camp0_oFire"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.youtube.com/channel/UCZujdNHeQD0zzSFf6HfJ3LA"><i class="fa fa-youtube"></i></a>
+        <a href="https://www.instagram.com/_campp_fire_/"><i class="fa fa-instagram"></i></a>
+        <a href="https://open.spotify.com/playlist/1ExXZYFn0TU0CCRl5viVR6"><i class="fa fa-spotify"></i></a>
+        <a style="left : 5px;" href="https://soundcloud.com/camp-fire-347741457"><i class="fa fa-soundcloud"></i></a>
+
+
       </div>
     </div>
   </div>
+
 </div>
 <br>
-    <iframe width="360" height="345" src="https://www.youtube.com/embed/28_n-VioIVo"
-      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
-    <iframe width="360" height="345" src="https://www.youtube.com/embed/7mNAqTux8hM"
-      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
+<div class="row">
+  <div class="col embed-responsive embed-responsive-1by1">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/28_n-VioIVo"></iframe>
+  </div>
 
-    <iframe width="360" height="345" src="https://www.youtube.com/embed/LtVysNJbf80"
-      frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
+  <div class="col embed-responsive embed-responsive-1by1">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7mNAqTux8hM"></iframe>
+  </div>
+
+  <div class="col embed-responsive embed-responsive-1by1">
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/LtVysNJbf80"></iframe>
+  </div>
+
 </div>
 
 {% endblock %}

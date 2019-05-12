@@ -3,20 +3,19 @@
 {% block body %}
 <div class="card bg-dark text-white text-center">
     <div class="row">
-    <div class="col-md-10">
-        <h5 class="card-title">
-            <br> <br> Welcome to the Campfire Cirle! <br> It's a forum for Campfire fans to post and connect with other fans and even Campfire himself! 
-        </h5>
-    </div>
-    <div class="col-md-2">
-    <a href="/forum/new-post" class="btn btn-primary">New Post <i class="fa fa-plus" aria-hidden="true"></i></a>
-    </div>
+        <div class="col-md-10">
+            <h5 class="card-title">
+                <br> <br> Welcome to the Campfire Cirle! <br> It's a forum for Campfire fans to post and connect with
+                other fans and even Campfire himself!
+            </h5>
+        </div>
+        <div class="col-md-2">
+            <a href="/forum/new-post" class="btn btn-primary">New Post <i class="fa fa-plus" aria-hidden="true"></i></a>
+        </div>
     </div>
 </div>
-
-<div class="card-body">
-
-    {% for post in posts %}
+<br>
+{% for post in posts %}
     {% set image_url = "/static/images/profile_pics/"+ post.author.image_file %}
     <div class="card">
         <div class="card-header bg-dark text-white">
@@ -25,25 +24,25 @@
                     <img src="{{image_url}}" class="pfp-img rounded-circle">
                 </div>
                 <div class="col-md-11">
-                    {{post.author.username}}
+                    <h5>{{post.author.username}}</h5>
                 </div>
             </div>
             <small class="text-muted"> Posted on {{ post.date_posted.strftime('%Y-%m-%d') }}</small>
             {% if post.author == current_user %}
             <div>
-                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{'/forum/update-post?id=' + post.id|string }}">Update</a>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1"
+                    href="{{'/forum/update-post?id=' + post.id|string }}">Update</a>
                 <a href="{{'/forum/delete?id=' + post.id|string}}" class="btn btn-danger btn-sm mt-1 mb-1">Delete</a>
             </div>
             {% endif %}
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{post.title}}</h5>
+            <h3 class="card-title">{{post.title}}</h3>
             <p class="card-text">
                 {{post.content}}
             </p>
         </div>
     </div>
     <br>
-    {% endfor %}
-</div>
+{% endfor %}
 {% endblock %}

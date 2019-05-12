@@ -2,7 +2,7 @@
 <div class="form-group">
   <dt>{{ field.label(class="form-control-label")}}</dt>
     {% if field.errors %}
-      {{ field(class="is-invalid "+kwargs.get("class", ""))|safe }}
+      {{ field(class="is-invalid "+ kwargs.get("class", ""))|safe }}
         <div class="invalid-feedback">
           {% for error in field.errors %}
             <span>{{ error }} </span>
