@@ -2,9 +2,20 @@ from flask import Blueprint, url_for, redirect
 from flask import render_template, request, flash, redirect
 from RisingStar.models import Merchandise, db, Order, Product
 from flask_login import current_user, login_required
-
+from functools import wraps
 merch_bp = Blueprint('merch', __name__, template_folder='templates', static_url_path='static')
 
+def fixMerch(func):
+    @wraps
+    def wrapped(*args, **kwargs):
+        try:
+            Product.query.all()
+        except:
+            print("It worked Poggers")
+        func(*args, **kwargs)
+    return wrapped
+
+@fixMerch
 @merch_bp.route('/merchandise')
 def merchandise():
     args = request.args
