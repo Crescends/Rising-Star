@@ -42,12 +42,14 @@ def merchandise():
     types = "Shirt", "Tank Top", "Sweatpants", "Iphone Case", "Galaxy Case", "Pillow", "Sweatshirt", "Bandana", "Poster", "Hoodie"
     return render_template('merchandise.html', albums=albums,merch=chosen_products.all(), types=types, album_field=album_field, category_field=category_field)
 
+@fixMerch
 @merch_bp.route('/merchandise/checkout/')
 @login_required
 def checkout():
     item = Product.query.get_or_404(request.args.get("id"))
     return render_template('checkout.html', title=f"Checkout {item.name}" ,item=item)
 
+@fixMerch
 @merch_bp.route('/merchandise/shopping-cart')
 @login_required
 def shopping_cart():
@@ -67,6 +69,7 @@ def add_to_cart():
         flash("The stuff has been added", "success")
     return redirect(url_for("merch.merchandise"))
 
+@fixMerch
 @merch_bp.route('/merchandise/purchase-cart')
 @login_required
 def checkout_cart():
