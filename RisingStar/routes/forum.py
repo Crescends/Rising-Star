@@ -3,12 +3,14 @@ from RisingStar.forms import RegistrationForm, LoginForm, ChangePasswordForm, Up
 from RisingStar.ext import bcrypt
 from RisingStar.models import db, User, Post
 from flask_login import login_user, current_user, logout_user, login_required
+from RisingStar.routes.merchandise import fixMerch
 import random
 import secrets
 import os
 
 forum = Blueprint('forum', __name__, template_folder='templates', static_url_path='static/forum')
 
+@fixMerch
 @forum.route('/register', methods=["GET", "POST"])
 def register():
     if current_user.is_authenticated:
@@ -24,11 +26,13 @@ def register():
         redirect(url_for("forum.login"))
     return render_template('register.html', title="Register", form=form)
 
+@fixMerch
 @forum.route('/forum')
 def main():
     p = Post.query.all()
     return render_template('forum.html', posts=reversed(p))
 
+@fixMerch
 @forum.route('/forum/new-post', methods=['GET', 'POST'])
 @login_required
 def new_post():
@@ -72,6 +76,7 @@ def delete_post():
         flash("You are not able to delete this post", "danger")
     return redirect(url_for("forum.main"))
 
+@fixMerch
 @forum.route('/login', methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
@@ -104,6 +109,7 @@ def save_picture(picture):
     picture.save(p_path)
     return pic_filename
 
+@fixMerch
 @forum.route('/account', methods=["POST", "GET"])
 @login_required
 def account():
