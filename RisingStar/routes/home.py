@@ -1,21 +1,25 @@
 from flask import Blueprint, render_template, url_for, flash
 from RisingStar.models import Product
 from RisingStar.forms import ContactForm
+from RisingStar.routes.merchandise import fixMerch
 home_bp = Blueprint('home', __name__, template_folder='templates', static_url_path='static')
 
 @home_bp.route('/template')
 def template():
     return render_template('layout.html', title="EnterTitleHere")
 
+@fixMerch
 @home_bp.route('/')
 @home_bp.route('/home')
 def home():
     return render_template('home.html', title="Home")
 
+@fixMerch
 @home_bp.route('/about')
 def about():
     return render_template('about.html', title="About")
 
+@fixMerch
 @home_bp.route('/music')
 def music():
     covers = [
@@ -35,6 +39,7 @@ class Song:
         self.music = f"sounds/{file_name}.mp3"
         self.description = description
 
+@fixMerch
 @home_bp.route('/tour')
 def tour():
     ticket_id = Product.query.filter_by(name="Normal Tour Admission Ticket").first().id
@@ -44,6 +49,7 @@ def tour():
     return render_template('tour.html', title="Tour", vip_link=vip_link, ticket_link=ticket_link)
 
 
+@fixMerch
 @home_bp.route('/contact', methods=["GET", "POST"])
 def contact():
     form = ContactForm()
