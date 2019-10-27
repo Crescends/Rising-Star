@@ -40,3 +40,6 @@ def add_products():
     db.session.add(ticket)
     db.session.add(vip_ticket)
     db.session.commit()
+
+if '__main__' == __name__:
+    setup_database()

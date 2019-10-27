@@ -8,7 +8,7 @@ from .products import Product
 
 def init_app(app: Flask):
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://LVkIsa44od:08SyDIvbeW@remotemysql.com/LVkIsa44od'
+    app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://hhdrcnez:jiFZZEILKXgkIufeTeRFudn6mFXkPGUf@salt.db.elephantsql.com:5432/hhdrcnez"
     db.init_app(app)
     db.app = app
 
